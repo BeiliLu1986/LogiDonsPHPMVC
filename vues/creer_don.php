@@ -33,7 +33,8 @@ $(document).ready(function(){
     <form action="" method="post">
         
         <label for="typeDeDon">Type de don :</label>
-        <select class="" name="typeDon">
+        <select required class="" name="typeDon">
+            <option value="">Choisir...</option>
             <option value="arg">argent</option>
             <option value="hab">habillement</option>
             <option value="nou">nourriture</option>
@@ -51,7 +52,7 @@ $(document).ready(function(){
 
 
 
-          <label for="email">E-mail :</label><input type="email" name="email"><br>
+          <label for="email">Courriel :</label><input type="email" name="email"><br>
           <label for="nom">Nom :</label><input type="text" name="nom" ><br>
           <label for="prenom">Prenom :</label><input type="text" name="prenom" ><br>
           <label for="tel">Téléphone :</label><input type="text" name="tel" ><br>
