@@ -1,5 +1,5 @@
 <?php
-require_once('./modele/configs/config.php');
+require_once('/modele/configs/config.php');
 class Database
 {	
 	private static $instance = null;
@@ -8,11 +8,13 @@ class Database
 	
 	public static function getInstance()
 	{
-		if(self::$instance == null)
+		if(self::$instance == null) {
 			self::$instance = new PDO(
-				"mysql:host=".Config::DB_HOST.";dbname=".Config::DB_NAME.";charset=utf8", 
+				"mysql:host=".Config::DB_HOST.";dbname=".Config::DB_NAME."", 
 				Config::DB_USER, 
 				Config::DB_PWD);
+		}
+		
 		return self::$instance;
 	}
 }
