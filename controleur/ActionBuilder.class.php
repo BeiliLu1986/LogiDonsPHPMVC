@@ -3,6 +3,7 @@ require_once('./controleur/DefaultAction.class.php');
 require_once('./controleur/LoginAction.class.php');
 require_once('./controleur/NewDonAction.class.php');
 require_once('./controleur/SaveAction.class.php');
+require_once('./controleur/NewBenevoleAction.class.php');
 
 
 
@@ -18,6 +19,9 @@ class ActionBuilder{
 				break; 
 			case "creerDon" :
 				return new NewDonAction();
+				break;
+                        case "newBenevole" :
+				return new NewBenevoleAction();
 				break;
                         case "save" :
 				return new SaveAction();
