@@ -1,21 +1,27 @@
 <?php
 require_once('./controleur/DefaultAction.class.php');
-//Login
 require_once('./controleur/LoginAction.class.php');
-require_once('./controleur/LogoutAction.class.php');
+require_once('./controleur/NewDonAction.class.php');
+require_once('./controleur/SaveAction.class.php');
+
 
 
 class ActionBuilder{
-	public static function getAction($nom){
-		switch ($nom)
+	public static function getAction($nomAction){
+		switch ($nomAction)
 		{
 			case "connecter" :
 				return new LoginAction();
-			break; 
+				break; 
 			case "deconnecter" :
 				return new LogoutAction();
-			break; 
-			
+				break; 
+			case "creerDon" :
+				return new NewDonAction();
+				break;
+                        case "save" :
+				return new SaveAction();
+				break;
 			default :
 				return new DefaultAction();
 		}
