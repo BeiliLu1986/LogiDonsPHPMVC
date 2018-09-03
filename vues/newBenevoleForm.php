@@ -18,17 +18,33 @@
             
     
 <div><h2 style=" text-align: center">Nouveau bénévole</h2></div><br/>
+ 
 
-<form action=""  method="post">
+<form action="controleur/contact.php"  method="post">
     
-          <label for="email">Courriel :</label><input type="email" name="courriel"><br>
-          <label for="nom">Nom :</label><input type="text" name="nomBen" ><br>
-          <label for="prenom">Prenom :</label><input type="text" name="prenomBen" ><br>
-          <label for="tel">Téléphone :</label><input type="text" name="tel" ><br>
-          <label for="adresse">Adresse :</label><input type="text" name="adresse" ><br>
-          <label for="ville">Ville :</label><input type="text" name="ville" ><br>
-          <label for="codePostP">Code postale :</label><input type="text" name="codePost" ><br>
-          <label for="province">Province :</label><input type="text" name="prov" ><br>
+          <label for="email">Courriel :</label><input type="email" name="courriel" id="courriel" value="<?php echo(isset($_POST['courriel']))? htmlspecialchars($_POST['courriel']):'';?>" />
+		  <?php echo $erreurs['courriel']; ?><br>
+		  
+          <label for="nom">Nom :</label><input type="text" name="nomBen" id="nomBen" value="<?php echo(isset($_POST['nomBen']))? htmlspecialchars($_POST['nomBen']):'';?>" />
+		   <?php echo $erreurs['nomBen']; ?><br>
+		   
+          <label for="prenom">Prenom :</label><input type="text" name="prenomBen" id="prenomBen" value="<?php echo(isset($_POST['prenomBen']))? htmlspecialchars($_POST['prenomBen']):'';?>" />
+		   <?php echo $erreurs['prenomBen']; ?><br>
+		   
+          <label for="tel">Téléphone :</label><input type="text" name="tel" id="tel" value="<?php echo(isset($_POST['tel']))? htmlspecialchars($_POST['tel']):'';?>" />
+		   <?php echo $erreurs['tel']; ?><br>
+		   
+          <label for="adresse">Adresse :</label><input type="text" name="adresse" id="adresse" value="<?php echo(isset($_POST['adresse']))? htmlspecialchars($_POST['adresse']):'';?>" />
+		   <?php echo $erreurs['adresse']; ?><br>
+		   
+          <label for="ville">Ville :</label><input type="text" name="ville" id="ville" value="<?php echo(isset($_POST['ville']))? htmlspecialchars($_POST['ville']):'';?>" />
+		   <?php echo $erreurs['ville']; ?><br>
+		   
+          <label for="codePostP">Code postale :</label><input type="text" name="codePost" id="codePost" value="<?php echo(isset($_POST['codePost']))? htmlspecialchars($_POST['codePost']):'';?>" />
+		   <?php echo $erreurs['codePost']; ?><br>
+		   
+          <label for="province">Province :</label><input type="text" name="prov" id="prov" value="<?php echo(isset($_POST['prov']))? htmlspecialchars($_POST['prov']):'';?>" />
+		   <?php echo $erreurs['prov']; ?><br>
           
          <legend>Ma disponibilité :</legend>
          <fieldset>
@@ -43,7 +59,7 @@
               De: <input type="time">heures<br>
               A: <input type="time">heures<br>
           </fieldset>
-    <button type="submit"  value="OK" >OK</button>
+    <button type="submit"  name="ok" value="OK" >OK</button>
     <input name="action" value="save" type="hidden" />
 </form>
 
