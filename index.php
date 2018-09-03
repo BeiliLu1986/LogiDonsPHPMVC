@@ -15,8 +15,7 @@ else
 		$vue = $action->execute();
 	}
 if ($action instanceof RequirePRGAction) {
-	//La méthode execute() d'une RequirePRGAction doit retourner le nom de l'action
-	//qu'on doit fournir dans le redirect.
+	
 	header("Location: ?action=".$vue);
 }
 else {
