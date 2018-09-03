@@ -1,0 +1,29 @@
+CREATE TABLE user (
+  id_user varchar(100) NOT NULL,
+  nom varchar(50) NOT NULL,
+  prenom varchar(50) NOT NULL,
+  type_user varchar(3) NOT NULL,
+  courriel varchar(50) NOT NULL,
+  nom_organis varchar(100) DEFAULT NULL,
+  telephone varchar(20) DEFAULT NULL,
+  ville varchar(50) DEFAULT NULL,
+  province varchar(20) DEFAULT NULL,
+  code_postale varchar(6) DEFAULT NULL,
+  adresse varchar(100) DEFAULT NULL,
+  password varchar(20) DEFAULT NULL,
+  PRIMARY KEY (id_user)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE don (
+  id_don int NOT NULL AUTO_INCREMENT,
+  donateur varchar(100) NOT NULL,
+  type_don varchar(3) NOT NULL,
+  description varchar(1000) DEFAULT NULL,
+  livraison varchar(3) NOT NULL,
+  date_livr date DEFAULT NULL,
+  quantite int(200) DEFAULT NULL,
+  montant int(200) DEFAULT NULL,
+  PRIMARY KEY (id_don),
+  FOREIGN KEY (donateur) REFERENCES user(id_user)
+) ENGINE=InnoDB;

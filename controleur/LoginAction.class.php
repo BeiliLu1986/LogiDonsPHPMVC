@@ -6,13 +6,12 @@ class LoginAction implements Action {
 			return "login";
 		if (!$this->valide())
 		{
-			//$_REQUEST["global_message"] = "Le formulaire contient des erreurs. Veuillez les corriger.";	
 			return "login";
 		}
 
 		require_once('./modele/UserDAO.class.php');
 		$udao = new UserDAO();
-		$user = $udao->find($_REQUEST["username"]);
+		$user = $udao->findUser($_REQUEST["username"]);
 		if ($user == null)
 			{
 				$_REQUEST["field_messages"]["username"] = "Utilisateur inexistant.";	
@@ -23,9 +22,11 @@ class LoginAction implements Action {
 				$_REQUEST["field_messages"]["password"] = "Mot de passe incorrect.";	
 				return "login";
 			}
-		if (!ISSET($_SESSION)) session_start();
-		$_SESSION["connecté"] = $_REQUEST["username"];
-		return "default";
+		
+                
+                if (!ISSET($_SESSION)) session_start();
+		$_SESSION["connected"] = $_REQUEST["username"];
+                return "user_page";
 	}
 	public function valide()
 	{
