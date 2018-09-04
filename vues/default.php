@@ -15,7 +15,7 @@
 							<img class="rounded-circle img-fluid d-block mx-auto" src="./img/donateur.png" alt="">
 							<h3>Je suis un donateur</h3>
 							<p>e suis une personne qui donne aux autres sans demander de l'argent.</p>
-							<button type="button" class="btn btn-info">Faire un don</button>
+							<button type="button" class="btn btn-info" onclick="location.href = '?action=creerDon'">Faire un don</button>
 						</div>
 					</div>
 				</div>
