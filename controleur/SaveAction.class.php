@@ -5,10 +5,10 @@ class SaveAction implements Action {
             
                 //ajouter un don
     if(isset($_REQUEST["nom"])){
-            require_once('/modele/classes/Don.class.php');  
-            require_once('/modele/UserDAO.class.php');
-            require_once('/modele/classes/User.class.php');
-            require_once('/modele/DonDAO.class.php');
+            require_once('/model/classes/Don.class.php');  
+            require_once('/model/UserDAO.class.php');
+            require_once('/model/classes/User.class.php');
+            require_once('/model/DonDAO.class.php');
             
             $nom=$_REQUEST["nom"];
             $prenom=$_REQUEST["prenom"];
@@ -67,8 +67,8 @@ class SaveAction implements Action {
                 
     elseif (isset($_REQUEST["courriel"])){
             
-            require_once('/modele/UserDAO.class.php');
-            require_once('/modele/classes/User.class.php');
+            require_once('/model/UserDAO.class.php');
+            require_once('/model/classes/User.class.php');
             $typeUser="ben";
             $nom=$_REQUEST["nomBen"];
             $prenom=$_REQUEST["prenomBen"];

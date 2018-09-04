@@ -20,12 +20,13 @@ class ActionBuilder{
 			case "creerDon" :
 				return new NewDonAction();
 				break;
-                        case "newBenevole" :
+            case "newBenevole" :
 				return new NewBenevoleAction();
 				break;
-                        case "save" :
+            case "save" :
 				return new SaveAction();
 				break;
+			//Acceuil information
 			default :
 				return new DefaultAction();
 		}

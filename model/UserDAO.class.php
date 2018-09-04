@@ -1,10 +1,10 @@
 <?php
-include_once('./modele/classes/Database.class.php'); 
-include_once('./modele/classes/User.class.php'); 
+include_once('./model/classes/Database.class.php'); 
+include_once('./model/classes/User.class.php'); 
 
 class UserDAO
 {	
-	public static function find($id)
+	public static function findUser($id)
 	{
 		$db = Database::getInstance();
 
