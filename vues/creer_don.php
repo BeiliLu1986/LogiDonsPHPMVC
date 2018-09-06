@@ -58,7 +58,7 @@
 				<div class="form-group row">
                     <div class="col-sm-6">
 						<label for="quantite">Quantité</label>
-						<input required type="text" name="quantite" class="form-control" id="quantite" placeholder="Quantité" >
+                                                <input required type="number" name="quantite" class="form-control" id="quantite" placeholder="Quantité" >
                     </div>
 					<div class="col-sm-3">
                         <label for="adresse">Adresse</label>
@@ -72,7 +72,7 @@
 			   <div class="form-group row">
                     <div class="col-sm-6">
 						<label for="montant">Montant</label>
-						<input required type="text" name="montant" class="form-control" id="montant" placeholder="$">
+						<input required type="number" name="montant" step="0.01" class="form-control" id="montant" placeholder="$">
 					</div>
 					<div class="col-sm-3">
                         <label for="codePostP">Code postale</label>
