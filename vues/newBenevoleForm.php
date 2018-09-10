@@ -15,6 +15,8 @@
                     <div class="col-sm-6">
 						<label for="email">Courriel</label>
 						<input type="email" name="courriel" id="courriel" class="form-control" placeholder="votre@courriel.com" />
+						<label for="password">Mot de passe</label>
+						<input type="password" name="password" id="password" class="form-control" placeholder="Votre mot de passe" />
 						<label for="nom">Nom</label>
 						<input type="text" name="nomBen" id="nomBen" class="form-control" placeholder="Nom"  />
 						<label for="prenom">Prenom</label>
