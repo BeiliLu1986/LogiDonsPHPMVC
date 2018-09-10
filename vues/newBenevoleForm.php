@@ -75,7 +75,18 @@
                     </div>
 					<div class="col-sm-3">
 						<label for="province">Province</label>
-						<input type="text" name="prov" id="prov" class="form-control" placeholder="Province"  />
+						<select class="selectpicker form-control">
+							<option>Quebec</option>
+							<option>Ontario</option>
+							<option>Nova Scotia</option>
+							<option>New Brunswick</option>
+							<option>Manitoba</option>
+							<option>British Columbia</option>
+							<option>Prince Edward Isladn</option>
+							<option>Saskatchewan</option>
+							<option>Alberta</option>
+							<option>Newfoundland and Labrador</option>
+						</select>
                     </div>
                 </div>
 		</div>

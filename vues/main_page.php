@@ -5,9 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
  <!-- Stylesheets -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <link rel="stylesheet" type="text/css" href="./css/full-width-pics.css">
 <link rel="stylesheet" type="text/css" href="./css/body.css">
 <title>LogiDons</title>
@@ -56,7 +60,7 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">LogiDons</h1>
-    <p class="lead">Gestion des dons pour un centre d’aide aux démunis.</p>
+    <h4 class="display-5">Gestion des dons pour un centre d’aide aux démunis.</h4>
   </div>
 </div>
 <!-- Content  -->			

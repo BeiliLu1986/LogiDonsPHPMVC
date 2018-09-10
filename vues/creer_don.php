@@ -5,7 +5,7 @@
                 <div class="form-group row">
                     <div class="col-sm-6">
 						<label for="typeDeDon">Type de don</label>
-						<select required  class="selectpicker" name="typeDon">
+						<select required  class="selectpicker form-control" name="typeDon">
 							<option value="">Choisir...</option>
 							<option value="arg">argent</option>
 							<option value="hab">habillement</option>
@@ -104,8 +104,15 @@
           				</div> 
 				    </div>
                 </div>
-                <button type="submit" value="OK" class="btn btn-info px-4 float-right btn-block">Donner</button>
-				<input name="action" value="save" type="hidden" />     
+				<div class="form-group row">
+					<div class="col-sm-4"></div>
+					<div class="col-sm-4">
+						<button type="submit" value="OK" class="btn btn-info px-4 float-right btn-block ">Donner</button>
+						<input name="action" value="save" type="hidden" /> 
+					</div>
+					<div class="col-sm-4"></div>
+				</div>
+                   
             </form>
 		</div>
     </div>
