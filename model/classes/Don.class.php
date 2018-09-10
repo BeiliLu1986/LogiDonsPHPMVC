@@ -2,9 +2,9 @@
 
 class Don {
         private $id_don;
-	private $donateur;
-	private $description;
-	private $type_don;
+	    private $donateur;
+	    private $description;
+	    private $type_don;
         private $livraison;
         private $date_livr='NULL';
         private $quantite;
@@ -92,12 +92,12 @@ class Don {
         public function loadFromRecord($don)
 	{
                 $this->id_don = $don["$id_don"];
-		$this->donateur = $don["donateur"];
+		        $this->donateur = $don["donateur"];
                 $this->type_don = $don["type_don"];
-		$this->description = $don["description"];
+		        $this->description = $don["description"];
                 $this->livraison = $don["livraison"];
-		$this->date_livr = $don["date_livr"];
-		$this->quantite = $don["quantite"];
+		        $this->date_livr = $don["date_livr"];
+		        $this->quantite = $don["quantite"];
                 $this->montant = $don["montant"];
 	}
 }

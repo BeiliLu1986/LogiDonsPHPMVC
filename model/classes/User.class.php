@@ -126,9 +126,9 @@ class User {
 	}
 	public function loadFromRecord($ligne)
 	{
-		$this->id_user = $ligne["id_user"];
+		        $this->id_user = $ligne["id_user"];
                 $this->nom = $ligne["nom"];
-		$this->prenom = $ligne["prenom"];
+		        $this->prenom = $ligne["prenom"];
                 $this->type_user = $ligne["type_user"];
                 $this->courriel = $ligne["courriel"];
                 $this->nom_organis = $ligne["nom_organis"];

@@ -47,6 +47,6 @@ $erreurs = array();
                         
         }
              
-    }
+    
 include ('vues/newBenevoleForm.php');
 <?php
