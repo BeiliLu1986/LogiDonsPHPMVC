@@ -1,7 +1,15 @@
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h1 class="display-4">Faire un don</h1>
+        <hr>
+    </div>
+    <div class="col-md-4"></div>
+</div>
 <div class="container py-5">
     <div class="row">
         <div class="col-md-10 mx-auto">
-            <form action="" method="post">
+		    <form action="" method="post">
                 <div class="form-group row">
                     <div class="col-sm-6">
 						<label for="typeDeDon">Type de don</label>

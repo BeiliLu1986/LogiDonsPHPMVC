@@ -1,3 +1,11 @@
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h1 class="display-4">S'enregistrer</h1>
+        <hr>
+    </div>
+    <div class="col-md-4"></div>
+</div>
 <div class="container py-5">
 <form action="" method="post">
     <div class="row">
