@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS logidons;
+CREATE DATABASE logidons;
+
 CREATE TABLE user (
   id_user varchar(100) NOT NULL,
   nom varchar(50) NOT NULL,
@@ -22,8 +25,18 @@ CREATE TABLE don (
   description varchar(1000) DEFAULT NULL,
   livraison varchar(3) NOT NULL,
   date_livr date DEFAULT NULL,
-  quantite int(200) DEFAULT NULL,
-  montant int(200) DEFAULT NULL,
+  quantite int(10) DEFAULT NULL,
+  montant decimal(10,2) DEFAULT NULL,
+  status varchar(3) NOT NULL DEFAULT 'new',
   PRIMARY KEY (id_don),
   FOREIGN KEY (donateur) REFERENCES user(id_user)
 ) ENGINE=InnoDB;
+
+CREATE TABLE employes_dons
+(
+employe varchar(100) NOT NULL,
+don int NOT NULL,
+PRIMARY KEY (employe, don),
+FOREIGN KEY (employe) REFERENCES user(id_user),
+FOREIGN KEY (don) REFERENCES don(id_don)
+) ENGINE=INNODB;

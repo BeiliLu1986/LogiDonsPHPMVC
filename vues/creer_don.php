@@ -15,24 +15,24 @@
 				    </div>
                     <div class="col-sm-6">
 						<label for="email">Courriel</label>
-						<input type="email" name="email" class="form-control" id="email" placeholder="votre@courriel.com">
+						<input required type="email" name="email" class="form-control" id="email" placeholder="votre@courriel.com">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6">
 						<label for="description">Description</label>
-						<textarea class="form-control" name="descr" cols="40" rows="3"></textarea>
+						<textarea required class="form-control" name="descr" cols="40" rows="3"></textarea>
                     </div>
                     <div class="col-sm-6">
 						<label for="nom">Nom</label>
-						<input type="text" class="form-control" name="nom" id="nom" placeholder="Votre nom" >
+						<input required type="text" class="form-control" name="nom" id="nom" placeholder="Votre nom" >
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <label for="livraison">Livraison</label><br>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="livraison"  id="inlineRadio1" value="oui">
+                                                    <input class="form-check-input" type="radio" name="livraison"  id="inlineRadio1" value="oui" checked>
 							<label class="form-check-label" for="inlineRadio1">Oui</label>
 						</div>
 						<div class="form-check form-check-inline">
@@ -42,45 +42,45 @@
 			        </div>
                     <div class="col-sm-6">
                         <label for="prenom">Prenom</label>
-						<input type="text" name="prenom" class="form-control" id="prenom" placeholder="prenom">
+						<input required type="text" name="prenom" class="form-control" id="prenom" placeholder="prenom">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6">
 						<label for="date">Date</label>
-						<input type="date" class="form-control" name="dateLivraison" value="">
+                                                <input required type="date" class="form-control" id="dateLiv" name="dateLivraison" value="">
                     </div>
                     <div class="col-sm-6">
 						<label for="tel">Téléphone</label>
-						<input type="text" name="tel" class="form-control" id="tel" placeholder="tel" >
+						<input required type="text" name="tel" class="form-control" id="tel" placeholder="tel" >
                     </div>
                 </div>
 				<div class="form-group row">
                     <div class="col-sm-6">
 						<label for="quantite">Quantité</label>
-						<input type="text" name="quantite" class="form-control" id="quantite" placeholder="Quantité" >
+                                                <input required type="number" name="quantite" class="form-control" id="quantite" placeholder="Quantité" >
                     </div>
 					<div class="col-sm-3">
                         <label for="adresse">Adresse</label>
-						<input type="text" name="adresse" class="form-control" id="adresse" placeholder="Adresse">
+						<input required type="text" name="adresse" class="form-control" id="adresse" placeholder="Adresse">
                     </div>
                     <div class="col-sm-3">
 					    <label for="ville">Ville</label>
-						<input type="text" name="ville" class="form-control" id="ville" placeholder="ville">
+						<input required type="text" name="ville" class="form-control" id="ville" placeholder="ville">
                     </div>
                 </div>
 			   <div class="form-group row">
                     <div class="col-sm-6">
 						<label for="montant">Montant</label>
-						<input type="text" name="montant" class="form-control" id="montant" placeholder="$">
+						<input required type="number" name="montant" step="0.01" class="form-control" id="montant" placeholder="$">
 					</div>
 					<div class="col-sm-3">
                         <label for="codePostP">Code postale</label>
-						<input type="text" name="codePostale" class="form-control" id="codePostale" placeholder="Code postale">
+						<input required type="text" name="codePostale" class="form-control" id="codePostale" placeholder="Code postale">
 					</div>
                     <div class="col-sm-3">
 					    <label for="province">Province</label>
-						<input type="text" name="province"  class="form-control" id="province" placeholder="Province">
+						<input required type="text" name="province"  class="form-control" id="province" placeholder="Province">
 				    </div>
                 </div>
 				<div class="form-group row">
@@ -89,11 +89,11 @@
 					<div class="col-sm-3">
 						<label for="question">Ce don provient d'une organisation?</label>
 				    	<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" id="checkOrg" name="checkOrg" value="oui">
+							<input class="form-check-input" type="radio" id="checkOui" name="checkOrg" value="oui">
 							<label class="form-check-label" for="inlineRadio1">Oui</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="checkOrg" value="non" checked>
+							<input class="form-check-input" type="radio" id="checkNon" name="checkOrg" value="non" checked>
 							<label class="form-check-label" for="inlineRadio2" >Non</label>
 						</div>
 			        </div>
