@@ -15,6 +15,30 @@
 <link rel="stylesheet" type="text/css" href="./css/full-width-pics.css">
 <link rel="stylesheet" type="text/css" href="./css/body.css">
 <title>LogiDons</title>
+<script>
+$(document).ready(function(){
+    $('#orgData').hide();
+//    $('#dateLiv').prop('disabled', true);
+    
+    $('#checkOui').change(function(){
+        if(this.checked)
+            $('#orgData').show();
+        });
+    $('#checkNon').change(function(){
+        if(this.checked)
+            $('#orgData').hide();
+        });    
+    
+    $('#inlineRadio1').change(function(){
+        if(this.checked)
+            $('#dateLiv').prop('disabled', false);
+            });
+    $('#inlineRadio2').change(function(){
+        if(this.checked)
+            $('#dateLiv').prop('disabled', true);
+            });
+});
+</script>
 </head>
 <body class="d-flex flex-column"> 
 <!-- MENU -->
