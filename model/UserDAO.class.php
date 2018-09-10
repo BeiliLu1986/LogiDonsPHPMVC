@@ -1,7 +1,7 @@
 <?php
-include_once('/modele/classes/Database.class.php'); 
-include_once('/modele/classes/User.class.php');
-require_once('/modele/classes/Liste.class.php');
+include_once('/model/classes/Database.class.php'); 
+include_once('/model/classes/User.class.php');
+require_once('/model/classes/Liste.class.php');
 
 class UserDAO
 {	

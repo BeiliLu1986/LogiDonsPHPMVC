@@ -1,7 +1,7 @@
 <?php
-include_once('/modele/classes/Database.class.php'); 
-include_once('/modele/classes/Don.class.php'); 
-include_once('/modele/classes/Liste.class.php'); 
+include_once('/model/classes/Database.class.php'); 
+include_once('/model/classes/Don.class.php'); 
+include_once('/model/classes/Liste.class.php'); 
 
 class DonDAO
 {	
