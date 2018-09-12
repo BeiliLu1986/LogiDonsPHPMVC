@@ -1,9 +1,11 @@
 <?php
+require_once('./controleur/LogoutAction.class.php');
 require_once('./controleur/DefaultAction.class.php');
 require_once('./controleur/LoginAction.class.php');
 require_once('./controleur/NewDonAction.class.php');
 require_once('./controleur/SaveAction.class.php');
 require_once('./controleur/NewBenevoleAction.class.php');
+require_once('./controleur/AfficherMesDonsAction.class.php');
 
 
 
@@ -25,6 +27,9 @@ class ActionBuilder{
 				break;
             case "save" :
 				return new SaveAction();
+				break;
+			case "afficherMesDons" :
+				return new AfficherMesDonsAction();
 				break;
 			//Acceuil information
 			default :

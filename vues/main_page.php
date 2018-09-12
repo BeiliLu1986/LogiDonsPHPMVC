@@ -50,21 +50,50 @@ $(document).ready(function(){
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
 		<li class="nav-item active" >
-			<a class="nav-link" href="?action=">Accueil &nbsp;<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a>
+			<a class="nav-link" href="?action=">Accueil &nbsp;<span style="font-size:16px;" ></span></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="?action=creerDon">Faire un don &nbsp; <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-heart-empty"></a>
+			<a class="nav-link" href="?action=creerDon">Faire un don &nbsp; <span style="font-size:16px;"></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="?action=newBenevole">Bénévolat &nbsp; <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-dashboard"></a>
+			<a class="nav-link" href="?action=newBenevole">Bénévolat &nbsp; <span style="font-size:16px;"></a>
 		</li>
 		<?php
 			if (!ISSET($_SESSION)) session_start();
-			if (ISSET($_SESSION["connecté"]))
+			if (ISSET($_SESSION["connected"]))
 			{
 		?>
+		<?php
+		require_once('./model/UserDAO.class.php');
+			$user= UserDAO::findUser($_SESSION["connected"]);
+			$typeUser=$user->getType_user();
+			if($typeUser=='sup'){
+		?>   
+		<!-- Partie Superviseur -->
 		<li class="nav-item">
-			<a class="nav-link" href="?action=deconnecter">D&#233connecter &nbsp; <?php echo $_SESSION["connecté"]; ?>&nbsp;<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-off"></span></a>
+			<a class="nav-link" href="">Employes &nbsp; <span style="font-size:16px;" ></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="">Statistiques &nbsp; <span style="font-size:16px;" ></a>
+		</li>
+		<!-- -->
+		<?php    
+			}
+			elseif ($typeUser=='emp') {
+			?>
+			<!-- Partie Employe -->
+			<li class="nav-item">
+				<a class="nav-link" href="?action=afficherMesDons">Mes dons &nbsp; <span style="font-size:16px;" ></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="">Profil &nbsp; <span style="font-size:16px;" ></a>
+			</li>
+			<?php   
+			}
+		?>
+		<!-- -->
+		<li class="nav-item">
+			<a class="nav-link" href="?action=deconnecter">D&#233connecter &nbsp; <?php echo $_SESSION["connected"]; ?>&nbsp;<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-off"></span></a>
 		</li>
 		<?php	
 			}
