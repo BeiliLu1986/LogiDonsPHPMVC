@@ -63,7 +63,7 @@ class DonDAO
 		return null;
 	}
 	
-	  public static function findByIdEmployer($id)
+	  public static function findByIdEmploye($id)
 	{
 		try {
 		$db = Database::getInstance();
