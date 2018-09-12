@@ -22,8 +22,7 @@
 				<div class="col-md-8 text-justify">
 					<h2>Les dons en ligne simplifiés et intégrés</h2>
 					<p>
-					Cette solution complète de dons en ligne s'adresse principalement aux organisations caritatives (fondations, organismes de charité et de bienfaisance). Il leur permet de gérer, sans recourir à un programmeur, des formulaires de dons en ligne totalement intégrés au logiciel de gestion de dons et donateurs.</p>
-				</div>
+					Cette solution de dons en ligne s'adresse principalement aux organisations caritatives. Elle permet de gérer, sans recourir à un programmeur, des formulaires de dons en ligne totalement intégrés au logiciel de gestion de dons et donateurs.	</div>
 			</div>
 		</div>
 	</div>

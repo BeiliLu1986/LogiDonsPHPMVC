@@ -14,12 +14,12 @@ class LoginAction implements Action {
 		$user = $udao->findUser($_REQUEST["username"]);
 		if ($user == null)
 			{
-				$_REQUEST["field_messages"]["username"] = "Utilisateur inexistant.";	
+				$_REQUEST["field_messages"]["username"] = "Nom utilisateur ou mot de passe non correct !";	
 				return "login";
 			}
 		else if ($user->getPassword() != $_REQUEST["password"])
 			{
-				$_REQUEST["field_messages"]["password"] = "Mot de passe incorrect.";	
+				$_REQUEST["field_messages"]["password"] = "Nom utilisateur ou mot de passe non correct !";	
 				return "login";
 			}
 		
@@ -33,12 +33,12 @@ class LoginAction implements Action {
 		$result = true;
 		if ($_REQUEST['username'] == "")
 		{
-			$_REQUEST["field_messages"]["username"] = "Donnez votre nom d'utilisateur";
+			$_REQUEST["field_messages"]["username"] = "Nom utilisateur ou mot de passe non correct !";
 			$result = false;
 		}	
 		if ($_REQUEST['password'] == "")
 		{
-			$_REQUEST["field_messages"]["password"] = "Mot de passe obligatoire";
+			$_REQUEST["field_messages"]["password"] = "Nom utilisateur ou mot de passe non correct !";
 			$result = false;
 		}	
 		return $result;

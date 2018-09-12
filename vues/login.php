@@ -9,9 +9,20 @@
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <h2>Please Login</h2>
-                    <hr>
+                    <h2>Connexion</h2>
+					 <hr>
+					
                 </div>
+				<div class="col-md-3">
+					<div class="form-control-feedback">
+                        <h4 class="text-danger align-middle"><span class="badge badge-danger"><?php if (ISSET($_REQUEST["field_messages"]["password"])) 
+							echo "<div id='errormess'>".$_REQUEST["field_messages"]["password"]."</div>";
+						?></span> </h4>						
+						<h4 class="text-danger align-middle"><span class="badge badge-danger"><?php if (ISSET($_REQUEST["field_messages"]["username"])) 
+								echo "<div id='errormess'>".$_REQUEST["field_messages"]["username"]."</div>";
+						?></span> </h4>
+                    </div>
+				</div>
             </div>
             <div class="row">
                 <div class="col-md-3"></div>
@@ -24,15 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                           <?php if (ISSET($_REQUEST["field_messages"]["username"])) 
-								echo "<div id='errormess'>".$_REQUEST["field_messages"]["username"]."</div>";
-							?>
-                        </span>
-                    </div>
-                </div>
+                <div class="col-md-3"></div>
             </div>
             <div class="row">
                 <div class="col-md-3"></div>
@@ -45,15 +48,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                        <?php if (ISSET($_REQUEST["field_messages"]["password"])) 
-							echo "<div id='errormess'>".$_REQUEST["field_messages"]["password"]."</div>";
-						?>  
-                        </span>
-                    </div>
-                </div>
+                <div class="col-md-3"></div>
             </div>
             <div class="row" style="padding-top: 1rem">
                 <div class="col-md-3"></div>
