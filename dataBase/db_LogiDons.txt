@@ -19,7 +19,7 @@ CREATE TABLE user (
 
 
 CREATE TABLE don (
-  id_don int NOT NULL AUTO_INCREMENT,
+  id_don varchar(50) NOT NULL,
   donateur varchar(100) NOT NULL,
   type_don varchar(3) NOT NULL,
   description varchar(1000) DEFAULT NULL,
@@ -34,9 +34,10 @@ CREATE TABLE don (
 
 CREATE TABLE employes_dons
 (
+id int NOT NULL AUTO_INCREMENT,
 employe varchar(100) NOT NULL,
-don int NOT NULL,
-PRIMARY KEY (employe, don),
+don varchar(50) NOT NULL,
+PRIMARY KEY (id),
 FOREIGN KEY (employe) REFERENCES user(id_user),
 FOREIGN KEY (don) REFERENCES don(id_don)
 ) ENGINE=INNODB;

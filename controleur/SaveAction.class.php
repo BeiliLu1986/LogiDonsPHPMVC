@@ -5,10 +5,10 @@ class SaveAction implements Action {
             
                 //ajouter un don
     if(isset($_REQUEST["nom"])){
-            require_once('/model/classes/Don.class.php');  
-            require_once('/model/UserDAO.class.php');
-            require_once('/model/classes/User.class.php');
-            require_once('/model/DonDAO.class.php');
+            require_once('/modele/classes/Don.class.php');  
+            require_once('/modele/UserDAO.class.php');
+            require_once('/modele/classes/User.class.php');
+            require_once('/modele/DonDAO.class.php');
             
             $nom=$_REQUEST["nom"];
             $prenom=$_REQUEST["prenom"];
@@ -25,7 +25,9 @@ class SaveAction implements Action {
             //creer user et don et les inserer dans le BD
             $nom_organis="";
             $typeUser="don";
-                       
+            $rand=rand(5, 15);
+            $id_don=$rand.$id_user;
+            
             $newUser=new User();
             $newUser->setId_user($id_user);
             $newUser->setNom($nom);
@@ -34,41 +36,52 @@ class SaveAction implements Action {
             if(isset($_REQUEST["nomOrg"])){
                 $nom_organis=$_REQUEST["nomOrg"];
             }
-            
+                        
             $newUser->setType_user($typeUser);
             $newUser->setCourriel($_REQUEST["email"]);
             $newUser->setNom_organis($nom_organis);
             $newUser->setTelephone($_REQUEST["tel"]);
             $newUser->setVille($_REQUEST["ville"]);
-            $newUser->setProvince($_REQUEST["prov"]);
-            $newUser->setCode_postale($_REQUEST["codePost"]);
+            $newUser->setProvince($_REQUEST["province"]);
+            $newUser->setCode_postale($_REQUEST["codePostale"]);
             $newUser->setAdresse($_REQUEST["adresse"]);
             $userDao=new UserDAO();
             $userDao->addUser($newUser);
             
             
+            if(isset($_REQUEST["dateLivraison"])){
+                $date_livr=$_REQUEST["dateLivraison"];
+            }
+            else {$date_livr=NULL;}
+            
+           
+            
             $newDon=new Don();
+            $newDon->setId_don($id_don);
             $newDon->setType_don($_REQUEST["typeDon"]);
             $newDon->setDescription($_REQUEST["descr"]);
             $newDon->setDonateur($id_user);
-            $newDon->setLivraison($_REQUEST["livr"]);
-            $newDon->setDate_livr($_REQUEST["dateLivr"]);
+            $newDon->setLivraison($_REQUEST["livraison"]);
+            $newDon->setDate_livr($date_livr);
             $newDon->setQuantite($_REQUEST["quantite"]);
             $newDon->setMontant($_REQUEST["montant"]);
             
             $dao=new DonDAO();
             $dao->addDon($newDon);
             
+            $empl= DonDAO::findMinQuantEmplsDons();
+            DonDAO::affecterDon($empl, $id_don);
             
-            return "main_page";    
+            
+            return "default";    
             
                 }
                 
                 
     elseif (isset($_REQUEST["courriel"])){
             
-            require_once('/model/UserDAO.class.php');
-            require_once('/model/classes/User.class.php');
+            require_once('/modele/UserDAO.class.php');
+            require_once('/modele/classes/User.class.php');
             $typeUser="ben";
             $nom=$_REQUEST["nomBen"];
             $prenom=$_REQUEST["prenomBen"];
@@ -89,16 +102,16 @@ class SaveAction implements Action {
             $newUser->setPrenom($prenom);
             $newUser->setType_user($typeUser);
             $newUser->setCourriel($_REQUEST["courriel"]);
-            
+            $newUser->setPassword($_REQUEST["password"]);
             $newUser->setTelephone($_REQUEST["tel"]);
             $newUser->setVille($_REQUEST["ville"]);
             $newUser->setProvince($_REQUEST["prov"]);
             $newUser->setCode_postale($_REQUEST["codePost"]);
             $newUser->setAdresse($_REQUEST["adresse"]);
             $userDao=new UserDAO();
-            $userDao->addUser($newUser);
+            $userDao->addBenevole($newUser);
             
-            return "main_page";
+            return "default";
             
             
             } 
