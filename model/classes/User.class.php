@@ -13,8 +13,9 @@ class User {
 	private $adresse;
         private $province;
 	private $password;
+        private $countDons;
 
-	public function __construct()	
+        public function __construct()	
 	{
 	}	
 	
@@ -70,7 +71,15 @@ class User {
         function getPassword() {
             return $this->password;
         }
+        
+        function getCountDons() {
+            return $this->countDons;
+        }
+        function setCountDons($countDons) {
+            $this->countDons = $countDons;
+        }
 
+                
         function setId_user($id_user) {
             $this->id_user = $id_user;
         }
@@ -126,13 +135,20 @@ class User {
 	}
 	public function loadFromRecord($ligne)
 	{
-		        $this->id_user = $ligne["id_user"];
+		$this->id_user = $ligne["id_user"];
                 $this->nom = $ligne["nom"];
-		        $this->prenom = $ligne["prenom"];
+		$this->prenom = $ligne["prenom"];
                 $this->type_user = $ligne["type_user"];
                 $this->courriel = $ligne["courriel"];
                 $this->nom_organis = $ligne["nom_organis"];
                 $this->password = $ligne["password"];
-	}	
+	}
+        public function loadEmplFromRecord($ligne)
+	{
+		$this->id_user = $ligne["id_user"];
+                
+	}
+        
+        
 }
 ?>
