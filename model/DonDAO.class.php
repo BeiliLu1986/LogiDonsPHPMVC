@@ -71,7 +71,8 @@ class DonDAO
 		
         
 		$pstmt = $db->prepare("SELECT * FROM employes_dons WHERE employe = :x");
-	
+	    $pstmt->execute(array(':x' => $id));
+		
 		$res = $db->query($pstmt);
 		    foreach($res as $row) {
 				$d = new Don();
@@ -89,9 +90,9 @@ class DonDAO
 	}
 	
 	
-   public static accepterDon($x){
+   public static function accepterDon($x){
 	   
-	   $request = "UPDATE don SET status = '"accepter"'".
+	   $request = "UPDATE don SET status = 'accepter'".
 				" WHERE id_don = '".$x->getId_don()."'";
 	   
 	   try
@@ -106,9 +107,9 @@ class DonDAO
 	 	 
     }  
 	
-	 public static refuserDon($x){
+	 public static function refuserDon($x){
 	   
-	   $request = "UPDATE don SET status = '"refuzer"'".
+	   $request = "UPDATE don SET status = 'refuzer'".
 				" WHERE id_don = '".$x->getId_don()."'";
 	   
 	   try

@@ -21,14 +21,14 @@ class UserDAO
                         $u->setId_user($result->id_user);
                         $u->setNom($result->nom);
                         $u->setPrenom($result->prenom);
-			$u->setType_user($result->type_user);
-			$u->setCourriel($result->courriel);
+						$u->setType_user($result->type_user);
+						$u->setCourriel($result->courriel);
                         $u->setPassword($result->password);
 			$pstmt->closeCursor();
 			return $u;
 		}
 		$pstmt->closeCursor();
-		return null;
+		return $u;
 	}
     
         public static function findById($id)
