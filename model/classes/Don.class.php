@@ -2,15 +2,18 @@
 
 class Don {
         private $id_don;
-	    private $donateur;
-	    private $description;
-	    private $type_don;
+	private $donateur;
+	private $description;
+	private $type_don;
         private $livraison;
-        private $date_livr='NULL';
+        private $date_livr;
         private $quantite;
         private $montant;
-        
-        
+        private $status;
+
+
+
+
         public function __construct()	
 	{
                 
@@ -48,7 +51,11 @@ class Don {
             return $this->montant;
         }
 
-        function setId_don($id_don) {
+        function getStatus() {
+            return $this->status;
+        }
+
+                function setId_don($id_don) {
             $this->id_don = $id_don;
         }
 
@@ -79,8 +86,12 @@ class Don {
         function setMontant($montant) {
             $this->montant = $montant;
         }
+        
+        function setStatus($status) {
+            $this->status = $status;
+        }
 
-                                
+                                        
         public function __toString()
 	{
 		return "".$this->type_don.",".$this->description.",".$this->date_livr.",".$this->quantite.",".$this->montant.",".$this->donateur."]";
@@ -91,14 +102,15 @@ class Don {
 	}
         public function loadFromRecord($don)
 	{
-                $this->id_don = $don["$id_don"];
-		        $this->donateur = $don["donateur"];
+                $this->id_don = $don["id_don"];
+		$this->donateur = $don["donateur"];
                 $this->type_don = $don["type_don"];
-		        $this->description = $don["description"];
+		$this->description = $don["description"];
                 $this->livraison = $don["livraison"];
-		        $this->date_livr = $don["date_livr"];
-		        $this->quantite = $don["quantite"];
+		$this->date_livr = $don["date_livr"];
+		$this->quantite = $don["quantite"];
                 $this->montant = $don["montant"];
+                $this->status=$don["status"];
 	}
 }
 ?>
