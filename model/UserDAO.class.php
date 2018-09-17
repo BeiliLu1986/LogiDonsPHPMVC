@@ -1,7 +1,7 @@
 <?php
-include_once('/model/classes/Database.class.php'); 
-include_once('/model/classes/User.class.php');
-require_once('/model/classes/Liste.class.php');
+include_once('/modele/classes/Database.class.php'); 
+include_once('/modele/classes/User.class.php');
+require_once('/modele/classes/Liste.class.php');
 
 class UserDAO
 {	
@@ -30,6 +30,25 @@ class UserDAO
 		$pstmt->closeCursor();
 		return null;
 	}
+        //methode pour trouver tous employes
+        public static function findAllEmpls(){
+        try {
+			$liste = new Liste();
+			$requete = "SELECT * FROM user where type_user='emp'";
+			$cnx = Database::getInstance();
+			$res = $cnx->query($requete);
+		    foreach($res as $row) {
+				$u = new User();
+				$u->loadFromRecord($row);
+				$liste->add($u);
+		    }
+		    $cnx = null;
+			return $liste;
+		} catch (PDOException $e) {
+		    print "Error!: " . $e->getMessage() . "<br/>";
+		    return $liste;
+		}	
+    }  
     
         public static function findById($id)
 	{
