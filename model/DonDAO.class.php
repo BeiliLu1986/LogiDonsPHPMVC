@@ -95,7 +95,87 @@ class DonDAO
 			throw $e;
 		}
       }
+      
+      //recherche tous les dons d'un employe
+        public static function findEmplsDon($idEmpl){
+            try {
+			$liste = new Liste();
+		
+			$requete = "SELECT * FROM don d,employes_dons e  WHERE e.employe='$idEmpl' AND d.id_don=e.don";
+			$cnx = Database::getInstance();
+			
+			$res = $cnx->query($requete);
+		    foreach($res as $row) {
+				$d = new Don();
+				$d->loadFromRecord($row);
+				$liste->add($d);
+		    }
+			$res->closeCursor();
+		    $cnx = null;
+			return $liste;
+		} catch (PDOException $e) {
+		    print "Error!: " . $e->getMessage() . "<br/>";
+		    return $liste;
+		}	
+        }
         
+        //recherche du don selon son id
+        public static function findDon($idDon){
+                $db = Database::getInstance();
+
+		$pstmt = $db->prepare("SELECT * FROM don WHERE id_don = :x");
+		$pstmt->execute(array(':x' => $idDon));
+		
+		$result = $pstmt->fetch(PDO::FETCH_OBJ);
+		$p = new Don();
+
+		if ($result)
+		{
+                    $p->setId_don($result->id_don);
+                    $p->setDonateur($result->donateur);
+                    $p->setDescription($result->description);
+                    $p->setType_don($result->type_don);
+                    $p->setLivraison($result->livraison);
+                    $p->setDate_livr($result->date_livr);
+                    $p->setQuantite($result->quantite);
+                    $p->setMontant($result->montant);
+                    $p->setStatus($result->status);
+                    $pstmt->closeCursor();
+                    return $p;
+		}
+		$pstmt->closeCursor();
+		return null;
+        }
+        
+        //accepter le don
+        public static function accepterDon($idDon){
+            $sql = "UPDATE don SET status = 'acc' WHERE id_don = '$idDon'";
+		try
+		{
+			$db = Database::getInstance();
+			return $db->exec($sql);
+		}
+		catch(PDOException $e)
+		{
+			throw $e;
+		}
+            
+        }
+        
+        //refuser le don
+        public static function refuserDon($idDon){
+            $sql = "UPDATE don SET status = 'ref' WHERE id_don = '$idDon'";
+		try
+		{
+			$db = Database::getInstance();
+			return $db->exec($sql);
+		}
+		catch(PDOException $e)
+		{
+			throw $e;
+		}
+            
+        }
 }
 ?>
 
