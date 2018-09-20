@@ -1,15 +1,11 @@
 <div id="vue1">
 	
 <?php
-<<<<<<< HEAD
-require_once('./modele/UserDAO.class.php');
-include_once('./modele/classes/User.class.php');
-require_once('./modele/classes/Liste.class.php');
-=======
+
 require_once('./modele/DonDAO.class.php');
 require_once('./modele/classes/Liste.class.php');
 require_once('./modele/classes/User.class.php');
->>>>>>> 71520b464f7350f1e91f91e8456c6b94366c7104
+
 
 $dao = new UserDAO();
 /*
