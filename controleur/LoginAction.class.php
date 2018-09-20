@@ -9,7 +9,7 @@ class LoginAction implements Action {
 			return "login";
 		}
 
-		require_once('./model/UserDAO.class.php');
+		require_once('./modele/UserDAO.class.php');
 		$udao = new UserDAO();
 		$user = $udao->findUser($_REQUEST["username"]);
 		if ($user == null)

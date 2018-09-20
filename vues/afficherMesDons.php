@@ -1,9 +1,9 @@
 <div id="vue1">
 	
 <?php
-require_once('./model/UserDAO.class.php');
-include_once('./model/classes/User.class.php');
-require_once('./model/classes/Liste.class.php');
+require_once('./modele/UserDAO.class.php');
+include_once('./modele/classes/User.class.php');
+require_once('./modele/classes/Liste.class.php');
 
 $dao = new UserDAO();
 /*

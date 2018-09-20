@@ -80,7 +80,7 @@ $(document).ready(function(){
 			{
 		?>
 		<?php
-		require_once('./model/UserDAO.class.php');
+		require_once('./modele/UserDAO.class.php');
 			$user= UserDAO::findUser($_SESSION["connected"]);
 			$typeUser=$user->getType_user();
 			if($typeUser=='sup'){
