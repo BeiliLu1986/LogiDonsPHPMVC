@@ -1,9 +1,15 @@
 <div id="vue1">
 	
 <?php
+<<<<<<< HEAD
 require_once('./modele/UserDAO.class.php');
 include_once('./modele/classes/User.class.php');
 require_once('./modele/classes/Liste.class.php');
+=======
+require_once('./modele/DonDAO.class.php');
+require_once('./modele/classes/Liste.class.php');
+require_once('./modele/classes/User.class.php');
+>>>>>>> 71520b464f7350f1e91f91e8456c6b94366c7104
 
 $dao = new UserDAO();
 /*
@@ -14,8 +20,10 @@ if (ISSET($_REQUEST["numASupprimer"]))
 	$dao->delete($x);
 }
 */
-$courriel = 'user@logidons.com';
-$liste = $dao->findUser($courriel);
+
+$idEmpl="bob1";
+$liste = $dao->findEmplsDon($idEmpl);
+
 
 ?>
 <!-- Table -->
@@ -33,19 +41,20 @@ $liste = $dao->findUser($courriel);
 <?php
 while ($liste->next())
 {
-	$u = $liste->getCurrent();
-	if ($u!=null)
+	$p = $liste->current();
+	if ($p!=null)
 	{
 		echo "
 		<tr>
-		<td>".$u->id_user()."</td>
-		<td>".$u->id_user()."</td>
-		<td>".$u->id_user()."</td>
-		<td>".$u->id_user()."</td>
-		<td>".$u->id_user()."</td>
+		<td>".$p->getId_don()."</td>
+		<td>".$p->getType_don()."</td>
+		<td>".$p->getDescription()."</td>
+		<td>".$p->getStatus()."</td>
+		
 	    <td class ='text-center'>
-		<a href='?action=editerService&serviceEditer=".$u->id_user()."' class='btn btn-success  ' title='Editer Service' ><i class='glyphicon glyphicon-edit'></i></a> 
-		<a href='?action=supprimerService&numASupprimer=".$u->id_user()."' class='btn btn-danger' title='Supprimer Service'><i class='glyphicon glyphicon-trash'></i></a>
+		<a href='?action=editerService&serviceEditer=".$p->getId_don()."' class='btn btn-success  ' title='Editer Service' ><i class='glyphicon glyphicon-edit'></i></a> 
+		<a href='?action=supprimerService&numASupprimer=".$p->getId_don()."' class='btn btn-danger' title='Supprimer Service'><i class='glyphicon glyphicon-trash'></i></a>
+
 		</td>
 		</tr>
 		";
