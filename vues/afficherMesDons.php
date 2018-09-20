@@ -1,9 +1,9 @@
 <div id="vue1">
 	
 <?php
-require_once('./model/DonDAO.class.php');
-require_once('./model/classes/Liste.class.php');
-require_once('./model/classes/User.class.php');
+require_once('./modele/DonDAO.class.php');
+require_once('./modele/classes/Liste.class.php');
+require_once('./modele/classes/User.class.php');
 
 
 
@@ -16,7 +16,8 @@ if (ISSET($_REQUEST["numASupprimer"]))
 	$dao->delete($x);
 }
 */
-$liste = $dao->findByIdEmploye();
+$idEmpl="bob1";
+$liste = $dao->findEmplsDon($idEmpl);
 
 ?>
 <!-- Table de Services -->
@@ -34,19 +35,19 @@ $liste = $dao->findByIdEmploye();
 <?php	
 while ($liste->next())
 {
-	$p = $liste->getCurrent();
+	$p = $liste->current();
 	if ($p!=null)
 	{
 		echo "
 		<tr>
-		<td>".$p->getIdItem()."</td>
-		<td>".$p->getClave()."</td>
-		<td>".$p->getNomItem()."</td>
-		<td>".$p->getDescriptionItem()."</td>
-		<td>".$p->getPrixItem()."</td>
+		<td>".$p->getId_don()."</td>
+		<td>".$p->getType_don()."</td>
+		<td>".$p->getDescription()."</td>
+		<td>".$p->getStatus()."</td>
+		
 	    <td class ='text-center'>
-		<a href='?action=editerService&serviceEditer=".$p->getClave()."' class='btn btn-success  ' title='Editer Service' ><i class='glyphicon glyphicon-edit'></i></a> 
-		<a href='?action=supprimerService&numASupprimer=".$p->getIdItem()."' class='btn btn-danger' title='Supprimer Service'><i class='glyphicon glyphicon-trash'></i></a>
+		<a href='?action=editerService&serviceEditer=".$p->getId_don()."' class='btn btn-success  ' title='Editer Service' ><i class='glyphicon glyphicon-edit'></i></a> 
+		<a href='?action=supprimerService&numASupprimer=".$p->getId_don()."' class='btn btn-danger' title='Supprimer Service'><i class='glyphicon glyphicon-trash'></i></a>
 		</td>
 		</tr>
 		";
