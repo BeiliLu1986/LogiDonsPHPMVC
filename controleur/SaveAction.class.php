@@ -115,6 +115,63 @@ class SaveAction implements Action {
             
             
             } 
+            
+        elseif (isset($_REQUEST["nomEmpl"])){
+            require_once('/modele/UserDAO.class.php');
+            require_once('/modele/classes/User.class.php');
+            $nom=$_REQUEST["nomEmpl"];
+            $prenom=$_REQUEST["prenomEmpl"];
+
+            $id=substr($nom,0,1).$prenom;
+            if(UserDAO::findById($id)==null){
+                $id_user=$id;
+            }
+            else{
+                $id_user=UserDAO::creerUserId($id);
+            }
+            
+            $newEmpl=new User();
+            $newEmpl->setId_user($id_user);
+            $newEmpl->setNom($nom);
+            $newEmpl->setPrenom($prenom);
+            $newEmpl->setCourriel($_REQUEST["emailEmpl"]);
+            $newEmpl->setTelephone($_REQUEST["telEmpl"]);
+            $newEmpl->setVille($_REQUEST["villeEmpl"]);
+            $newEmpl->setProvince($_REQUEST["provEmpl"]);
+            $newEmpl->setCode_postale($_REQUEST["codeEmpl"]);
+            $newEmpl->setAdresse($_REQUEST["adrEmpl"]);
+            $newEmpl->setPassword($_REQUEST["pasEmpl"]);
+            
+            UserDAO::addEmploye($newEmpl);
+            
+            return "listEmpl";
+          }   
+          
+          elseif (isset($_REQUEST["nomEmplMod"])){
+            require_once('/modele/UserDAO.class.php');
+            require_once('/modele/classes/User.class.php');
+              
+            $id='Ksa'; //$_REQUEST["idUser"]
+            $empl=new User();
+            $empl->setId_user($id);
+            $empl->setNom($_REQUEST["nomEmplMod"]);
+            $empl->setPrenom($_REQUEST["prenomEmpl"]);
+            $empl->setCourriel($_REQUEST["emailEmpl"]);
+            $empl->setTelephone($_REQUEST["telEmpl"]);
+            $empl->setVille($_REQUEST["villeEmpl"]);
+            $empl->setProvince($_REQUEST["provEmpl"]);
+            $empl->setCode_postale($_REQUEST["codeEmpl"]);
+            $empl->setAdresse($_REQUEST["adrEmpl"]);
+            $empl->setPassword($_REQUEST["pasEmpl"]);
+            
+            UserDAO::updateUser($empl);
+            
+              return "listEmpl";
+          }
+          
+          
+          
+ else { return "default";}
 	}
 }
 
