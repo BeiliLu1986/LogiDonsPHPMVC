@@ -9,7 +9,7 @@
 <div class="container py-5">
     <div class="row">
         <div class="col-md-10 mx-auto">
-            <form action="controleur/contact.php" method="post">
+            <form action="" method="post">
                 <div class="form-group row">
                     <div class="col-sm-6">
 						<label for="typeDeDon">Type de don</label>

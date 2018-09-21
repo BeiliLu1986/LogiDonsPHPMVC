@@ -84,8 +84,8 @@
 						 <input type="text" name="codePost" id="codePost" class="form-control" placeholder="CodePostal"  />
                     </div>
 					<div class="col-sm-3">
-						<label for="province">Province</label>
-						<select class="selectpicker form-control">
+						<label for="province" >Province</label>
+						<select name="prov" class="selectpicker form-control">
 							<option>Quebec</option>
 							<option>Ontario</option>
 							<option>Nova Scotia</option>
