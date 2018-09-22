@@ -72,7 +72,7 @@ $(document).ready(function(){
 		?>   
 		<!-- Partie Superviseur -->
 		<li class="nav-item">
-			<a class="nav-link" href="">Employes &nbsp; <span style="font-size:16px;" ></a>
+			<a class="nav-link" href="?action=listEmpl">Employes &nbsp; <span style="font-size:16px;" ></a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="">Statistiques &nbsp; <span style="font-size:16px;" ></a>
@@ -127,7 +127,6 @@ $(document).ready(function(){
 	</div>
 <!--****************** /row Content **********-->
 </div>
-
 <!--/.fluid-container-->
 <!-- Footer -->
 <footer class="navbar-default text-black mt-5 navbar-light bg-light">

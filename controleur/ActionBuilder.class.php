@@ -6,7 +6,9 @@ require_once('./controleur/NewDonAction.class.php');
 require_once('./controleur/SaveAction.class.php');
 require_once('./controleur/NewBenevoleAction.class.php');
 require_once('./controleur/AfficherMesDonsAction.class.php');
-
+require_once('./controleur/AfficherDesEmployesAction.class.php');
+require_once('./controleur/AjouterEmployeAction.class.php');
+require_once('./controleur/ModifierEmployeAction.class.php');
 
 
 class ActionBuilder{
@@ -22,16 +24,24 @@ class ActionBuilder{
 			case "creerDon" :
 				return new NewDonAction();
 				break;
-            case "newBenevole" :
+                        case "newBenevole" :
 				return new NewBenevoleAction();
 				break;
-            case "save" :
+                        case "save" :
 				return new SaveAction();
 				break;
 			case "afficherMesDons" :
 				return new AfficherMesDonsAction();
 				break;
-			//Acceuil information
+			case "listEmpl" :
+				return new AfficherDesEmployesAction();
+				break;
+                        case "ajoutEmpl" :
+				return new AjouterEmployeAction();
+				break;
+                        case "modifEmpl" :
+				return new ModifierEmployeAction();
+				break;    
 			default :
 				return new DefaultAction();
 		}
