@@ -7,23 +7,23 @@
     <div class="col-md-4"></div>
 </div>
 <div class="container py-5">
-<form action="" method="post">
+<form action="" method="post" autocomplete="off" id="newBenevoleform">
     <div class="row">
         <div class="col-md-10 mx-auto">
           
                 <div class="form-group row">
                     <div class="col-sm-6">
-						<label for="email">Courriel</label>
-						<input type="email" name="courriel" id="courriel" class="form-control" placeholder="votre@courriel.com" />
-						<label for="password">Mot de passe</label>
-						<input type="password" name="password" id="password" class="form-control" placeholder="Votre mot de passe" />
-						<label for="nom">Nom</label>
+						<label for="email">* Courriel</label>
+						<input type="" name="courriel" id="courriel" class="form-control" placeholder="votre@courriel.com" />
+						<label for="password">* Mot de passe</label>
+						<input type="password" name="password" id="password" class="form-control" placeholder="Votre mot de passe"  />
+						<label for="nom">* Nom</label>
 						<input type="text" name="nomBen" id="nomBen" class="form-control" placeholder="Nom"  />
-						<label for="prenom">Prenom</label>
+						<label for="prenom">* Prenom</label>
 						<input type="text" name="prenomBen" id="prenomBen" class="form-control" placeholder="Prénom"  />
 				    </div>
 					<div class="col-sm-3">
-						<label for="">Ma disponibilité :</label>
+						<label for="">* Ma disponibilité :</label>
 				        <fieldset class="form-control">
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" id="" name="" value="">
@@ -56,7 +56,7 @@
 						</fieldset>
 					</div>
 					<div class="col-sm-3">
-						 <label for="">De:</label>				
+						 <label for="">* De:</label>				
 						<input type="time" class="form-control" >heures
 						<label for="">À:</label>
 					    <input type="time" class="form-control">heures
@@ -64,28 +64,28 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6">
-						<label for="tel">Téléphone</label>
+						<label for="tel">* Téléphone</label>
 						<input type="text" name="tel" id="tel" class="form-control" placeholder="Téléphone"  />
                     </div>
                 </div>
 				<div class="form-group row">
                     <div class="col-sm-3">
-						 <label for="adresse">Adresse</label>
+						 <label for="adresse">* Adresse</label>
 						 <input type="text" name="adresse" id="adresse" class="form-control" placeholder="Adresse"  />
                     </div>
 					<div class="col-sm-3">
-						<label for="ville">Ville</label>
+						<label for="ville">* Ville</label>
 						<input type="text" name="ville" id="ville" class="form-control" placeholder="Ville" />
                     </div>
                 </div>
 				<div class="form-group row">
                     <div class="col-sm-3">
-						 <label for="codePostP">Code postale</label>
+						 <label for="codePostP">* Code postale</label>
 						 <input type="text" name="codePost" id="codePost" class="form-control" placeholder="CodePostal"  />
                     </div>
 					<div class="col-sm-3">
-						<label for="province">Province</label>
-						<select class="selectpicker form-control">
+						<label for="province" >* Province</label>
+						<select name="prov" class="selectpicker form-control">
 							<option>Quebec</option>
 							<option>Ontario</option>
 							<option>Nova Scotia</option>
@@ -112,6 +112,8 @@
 	</div>
 </form>
 </div>
-        
+<script>$('#login-form').disableAutoFill({
+    passwordFiled: '.password'}
+);</script>
 
 

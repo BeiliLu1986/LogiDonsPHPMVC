@@ -1,35 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta http-equiv="Content-Language" content="en-ca">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>  
-<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>            
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />  
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.js"></script>
-	<script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.print.js"></script>
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.dataTables.min.css">
-
-
-
  <!-- Stylesheets -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
 <link rel="stylesheet" type="text/css" href="./css/full-width-pics.css">
 <link rel="stylesheet" type="text/css" href="./css/body.css">
+
 <title>LogiDons</title>
 <script>
 $(document).ready(function(){
@@ -53,6 +37,7 @@ $(document).ready(function(){
         if(this.checked)
             $('#dateLiv').prop('disabled', true);
             });
+		
 });
 </script>
 </head>
@@ -109,7 +94,7 @@ $(document).ready(function(){
 		?>
 		<!-- -->
 		<li class="nav-item">
-			<a class="nav-link" href="?action=deconnecter">D&#233connecter &nbsp; <?php echo $_SESSION["connected"]; ?>&nbsp;<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-off"></span></a>
+			<a class="nav-link" href="?action=deconnecter">D&#233connecter &nbsp;<?php echo $_SESSION["connected"]; ?>&nbsp;<i style="font-size:16px;" class="fa fa-power-off"></i></a>
 		</li>
 		<?php	
 			}
@@ -117,7 +102,7 @@ $(document).ready(function(){
 			{
 		?>
 		<li class="nav-item">
-			<a class="nav-link" href="?action=connecter">Se connecter &nbsp;<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></a>
+			<a class="nav-link" href="?action=connecter">Se connecter &nbsp;<i style="font-size:16px;" class="fa fa-user"></i></a>
 		</li>
 		<?php	
 			}
@@ -126,7 +111,7 @@ $(document).ready(function(){
    </div>
 </nav>
 <!-- MENU -->
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid" >
   <div class="container">
     <h1 class="display-4">LogiDons</h1>
     <h4 class="display-5">Gestion des dons pour un centre d’aide aux démunis.</h4>
@@ -137,18 +122,18 @@ $(document).ready(function(){
 <!--****************** /row Content ********* -->
     <div class="row">
 	    <div id="content" class= "col-md-12">
-				<?php	include $vue.".php";?>	
-					
+			<?php	include $vue.".php";?>	
 		</div>
 	</div>
 <!--****************** /row Content **********-->
 </div>
+
 <!--/.fluid-container-->
 <!-- Footer -->
-<footer class="navbar-default text-black mt-4">
-    <div class="container-fluid py-3">
+<footer class="navbar-default text-black mt-5 navbar-light bg-light">
+    <div class="container-fluid py-2">
            <!-- Copyright -->
-    <div class="footer-copyright text-center py-3 " >
+    <div class="footer-copyright text-center " >
 	   &#9400; 2018 Copyright:<a>www.logidons.com</a>
 	 </div>
     <!-- Copyright -->

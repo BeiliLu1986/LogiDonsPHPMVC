@@ -26,7 +26,7 @@ class LoginAction implements Action {
                 
                 if (!ISSET($_SESSION)) session_start();
 		$_SESSION["connected"] = $_REQUEST["username"];
-                return "user_page";
+                return "default";
 	}
 	public function valide()
 	{
