@@ -39,7 +39,6 @@ if (ISSET($_REQUEST["numASupprimer"]))
 	$dao->delete($x);
 }
 */
-
 if (!ISSET($_SESSION)) session_start();
 	if (ISSET($_SESSION["connected"]))
 	{
@@ -82,6 +81,7 @@ while ($liste->next())
 		<td>".$p->getStatus()."</td>
 		
 	    <td class ='text-center'>
+<<<<<<< HEAD
 		<a href='?action=accepterDon&donAccepter=".$p->getId_don()."' class='btn btn-success' title='Accepter Don' ><i class='fa fa-check'></i></a> 
 		<a href='?action=refuserDon&donRefuser=".$p->getId_don()."' class='btn btn-danger' title='Refuser Don'><i class='fa fa-remove'></i></a>
 		</td>
