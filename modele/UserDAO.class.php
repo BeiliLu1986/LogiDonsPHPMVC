@@ -65,6 +65,7 @@ class UserDAO
 			$u->setId_user($result->id_user);
                         $u->setNom($result->nom);
                         $u->setPrenom($result->prenom);
+                        $u->setType_user($result->type_user);
                         $u->setCourriel($result->courriel);
                         $u->setTelephone($result->telephone);
                         $u->setVille($result->ville);
