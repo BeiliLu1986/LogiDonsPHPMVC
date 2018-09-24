@@ -4,31 +4,19 @@
 			<div class="row">
 				<div class="col-md-4">
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-4 text-center">
 					<h1 class="display-4">Liste des employes</h1>
 					<hr>
-				</div>
-				<div class="col-md-4">
-				</div>
-			</div>
-		</div>
-</div>
-<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="col-md-4">
-					
-                                        <a class="link" href="?action=ajoutEmpl">Ajouter nouveau employe</a><br>
+					<a class="link btn btn-info " href="?action=ajoutEmpl"  style="color:white;" >Ajouter nouveau employe</a><br>
 					<hr>
 				</div>
-			
+				<div class="col-md-4">
+				</div>
 			</div>
 		</div>
 </div>
-
-
-<div>
-<table>
+<div class="table-responsive">
+<table class="table">
     <tr>
     <th>Nom</th>
     <th>Prenom</th>
@@ -58,15 +46,20 @@ while($liste->next()){
     $ville=$u->getVille();
     $prov=$u->getProvince();
     
-    echo '<tr><td>'.$nom.'</td><td>'.$prenom.'</td><td>'.$email.'</td><td>'.$tel.'</td><td>'.$adresse.'</td>'
-            . '<td>'.$codePost.'</td><td>'.$ville.'</td><td>'.$prov.'</td><td><a href="?action=modifEmpl&idEmp='.$id_user.'">edit</td></tr>';
-    
-}
- 
+    echo '<tr>
+			<td>'.$nom.'</td>
+			<td>'.$prenom.'</td>
+			<td>'.$email.'</td>
+			<td>'.$tel.'</td>
+			<td>'.$adresse.'</td>
+            <td>'.$codePost.'</td>
+			<td>'.$ville.'</td>
+			<td>'.$prov.'</td>
+			<td><a href="?action=modifEmpl&idEmp='.$id_user.' " class="btn btn-success" title="Modifier employe" ><i class="fa fa-pencil" style="color:white;"></i></td>
+			</tr>';
+    }
 }
 
 ?>
-
-
 </table>
 </div>
