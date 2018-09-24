@@ -1,7 +1,16 @@
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
+				</div>
+				<div class="col-md-4">
+					<h1>Modifier l'employe</h1><input type="text" id="pass_data" class="form-control">
 <?php
 require_once('/modele/UserDAO.class.php');
 
-$id='Ksa'; //$_REQUEST["idUser"]
+
+$id= 'user01'; //$_REQUEST["idUser"]
 $nom=$prenom=$email=$tel=$ville=$prov=$codePost=$adresse=$pass="";
 $user=UserDAO::findById($id);
 if($user!=NULL){
@@ -16,13 +25,6 @@ $adresse=$user->getAdresse();
 $pass=$user->getPassword();
 }
 ?>
-<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="col-md-4">
-				</div>
-				<div class="col-md-4">
-					<h1>Modifier l'employe</h1>
 					<hr>
 				</div>
 				<div class="col-md-4">
@@ -30,17 +32,58 @@ $pass=$user->getPassword();
 			</div>
 		</div>
 </div>
-
-<form method="post">
-    <div><label for="nom">Nom</label><input required type="text" name="nomEmplMod" value="<?=$nom?>"></div>
-<div><label for="prenom">Prenom</label><input required type="text" name="prenomEmpl" value="<?=$prenom?>"></div>
-<div><label for="email">Courriel</label><input required type="email" name="emailEmpl" value="<?=$email?>"></div>
-<div><label for="tel">Téléphone</label><input required type="text" name="telEmpl" value="<?=$tel?>"></div>
-<div><label for="ville">Ville</label><input required type="text" name="villeEmpl" value="<?=$ville?>"></div>
-<div><label for="province">Province</label><input required type="text" name="provEmpl" value="<?=$prov?>"></div>
-<div><label for="code">Code postale</label><input required type="text" name="codeEmpl" value="<?=$codePost?>"></div>
-<div><label for="adresse">Adresse</label><input required type="text" name="adrEmpl" value="<?=$adresse?>"></div>
-<div><label for="password">Mot de pass</label><input required type="text" name="pasEmpl" value="<?=$pass?>"></div>
-<div><input type="submit" value="Ok"></div>
-<input name="action" value="save" type="hidden" />
+<div class="container">
+<form method="post" autocomplete="off">
+<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-3">
+		<div class="form-group">
+			<label for="nom">Nom</label>
+			<input required type="text" name="nomEmplMod" value="<?=$nom?>" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="prenom">Prenom</label>
+			<input required type="text" name="prenomEmpl" value="<?=$prenom?>" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="email">Courriel</label>
+			<input required type="email" name="emailEmpl" value="<?=$email?>" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="password">Mot de pass</label>
+			<input required type="text" name="pasEmpl" value="<?=$pass?>" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="tel">Téléphone</label>
+			<input required type="text" name="telEmpl" value="<?=$tel?>" class="form-control">
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="form-group">
+			<label for="ville">Ville</label>
+			<input required type="text" name="villeEmpl" value="<?=$ville?>" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="province">Province</label>
+			<input required type="text" name="provEmpl" value="<?=$prov?>" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="code">Code postale</label>
+			<input required type="text" name="codeEmpl" value="<?=$codePost?>" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="adresse">Adresse</label>
+			<input required type="text" name="adrEmpl" value="<?=$adresse?>" class="form-control">
+		</div>
+	</div>
+	<div class="col-md-3"></div>
+</div>
+<div class="row">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-4">
+	<input type="submit" value="Modifier employe" class="btn btn-info px-4 float-right" >
+	<input name="action" value="save" type="hidden" />
+</div>
+	<div class="col-sm-4"></div>
+</div>
 </form>
