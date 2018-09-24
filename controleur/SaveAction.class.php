@@ -70,8 +70,10 @@ class SaveAction implements Action {
             $dao->addDon($newDon);
             
             $empl= DonDAO::findMinQuantEmplsDons();
-            DonDAO::affecterDon($empl, $id_don);
-            
+            if(DonDAO::affecterDon($empl, $id_don)){
+                $_REQUEST["field_messages"]["mess"]="Le don est sauvegardé";
+            }
+            else {$_REQUEST["field_messages"]["mess"]="On a une erreur!";}
             
             return "default";    
             
@@ -147,11 +149,13 @@ class SaveAction implements Action {
             return "listEmpl";
           }   
           
-          elseif (isset($_REQUEST["nomEmplMod"])){
+    elseif (isset($_REQUEST["nomEmplMod"])){
             require_once('/modele/UserDAO.class.php');
             require_once('/modele/classes/User.class.php');
               
-            $id='Ksa'; //$_REQUEST["idUser"]
+            $u= UserDAO::findUser($_REQUEST["emailEmpl"]);
+            $userType=$u->getType_user();
+            $id=$u->getId_user();
             $empl=new User();
             $empl->setId_user($id);
             $empl->setNom($_REQUEST["nomEmplMod"]);
@@ -166,6 +170,9 @@ class SaveAction implements Action {
             
             UserDAO::updateUser($empl);
             
+            if($userType=='emp'){
+                return "modifEmpl";
+            }
               return "listEmpl";
           }
           
