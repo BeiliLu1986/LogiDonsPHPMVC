@@ -117,7 +117,7 @@ while ($liste->next())
 												"targets": 3,
 												"render": function(data, type, full, meta) {
 															var cellText = $(data).text(); //Stripping html tags !!!
-															if (type === 'display' &&  (cellText == "new" || data=='new')) {
+															if (type === 'display' &&  (cellText == "Nouveau" || data=='Nouveau')) {
 																var rowIndex = meta.row+1;
 																var colIndex = meta.col+1;
 																$('#items_data tbody tr:nth-child('+rowIndex+')').addClass('lightRed');
