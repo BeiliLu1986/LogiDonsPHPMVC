@@ -15,12 +15,10 @@
                 </div>
 				<div class="col-md-3">
 					<div class="form-control-feedback">
-                        <h4 class="text-danger align-middle"><span class="badge badge-danger"><?php if (ISSET($_REQUEST["field_messages"]["password"])) 
-							echo "<div id='errormess'>".$_REQUEST["field_messages"]["password"]."</div>";
-						?></span> </h4>						
+                        <h4 class="text-danger align-middle"><span class="badge badge-danger"><?php if (ISSET($_REQUEST["field_messages"]["password"]))
+                            echo "<div id='errormess'>".$_REQUEST["field_messages"]["password"]."</div>";?></span> </h4>						
 						<h4 class="text-danger align-middle"><span class="badge badge-danger"><?php if (ISSET($_REQUEST["field_messages"]["username"])) 
-								echo "<div id='errormess'>".$_REQUEST["field_messages"]["username"]."</div>";
-						?></span> </h4>
+                            echo "<div id='errormess'>".$_REQUEST["field_messages"]["username"]."</div>";?></span> </h4>
                     </div>
 				</div>
             </div>

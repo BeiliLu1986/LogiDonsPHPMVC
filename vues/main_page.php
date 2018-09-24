@@ -37,14 +37,62 @@ $(document).ready(function(){
         if(this.checked)
             $('#dateLiv').prop('disabled', true);
             });
-		
-});
+            
+
+    $('#nomEmplMod').prop('readonly', true);
+    $('#prenomEmpl').prop('readonly', true);
+    $('#emailEmpl').prop('readonly', true);
+    $('#telEmpl').prop('readonly', true);
+    $('#villeEmpl').prop('readonly', true);
+    $('#provEmpl').prop('readonly', true);
+    $('#codeEmpl').prop('readonly', true);
+    $('#adrEmpl').prop('readonly', true);
+    $('#pasEmpl').prop('readonly', true);
+    $('#ok').hide();
+    $('#annul').hide();
+        
+    $('#mod').click(function(){
+      $('#mod').hide();
+      $('#ok').show();
+      $('#annul').show();
+      $('#nomEmplMod').prop('readonly', false);
+      $('#prenomEmpl').prop('readonly', false);
+      $('#emailEmpl').prop('readonly', false);
+      $('#telEmpl').prop('readonly', false);
+      $('#villeEmpl').prop('readonly', false);
+      $('#provEmpl').prop('readonly', false);
+      $('#codeEmpl').prop('readonly', false);
+      $('#adrEmpl').prop('readonly', false);
+      $('#pasEmpl').prop('readonly', false);
+      
+  });  
+    $('#annul').click(function(){
+        $('#nomEmplMod').prop('readonly', true);
+        $('#prenomEmpl').prop('readonly', true);
+        $('#emailEmpl').prop('readonly', true);
+        $('#telEmpl').prop('readonly', true);
+        $('#villeEmpl').prop('readonly', true);
+        $('#provEmpl').prop('readonly', true);
+        $('#codeEmpl').prop('readonly', true);
+        $('#adrEmpl').prop('readonly', true);
+        $('#pasEmpl').prop('readonly', true);
+        $('#mod').show();
+        $('#ok').hide();
+      $('#annul').hide();
+  });
+    
+    
+  });		
+
 </script>
 </head>
 <body class="d-flex flex-column"> 
+    <?php
+                if (!ISSET($_SESSION)) session_start();
+                ?>
 <!-- MENU -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-  <a class="navbar-brand" href="?action=">LogiDons</a>
+  <a class="navbar-brand" href="">LogiDons</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -59,8 +107,8 @@ $(document).ready(function(){
 		<li class="nav-item">
 			<a class="nav-link" href="?action=newBenevole">Bénévolat &nbsp; <span style="font-size:16px;"></a>
 		</li>
-		<?php
-			if (!ISSET($_SESSION)) session_start();
+                <?php
+//                if (!ISSET($_SESSION)) session_start();
 			if (ISSET($_SESSION["connected"]))
 			{
 		?>
@@ -75,7 +123,7 @@ $(document).ready(function(){
 			<a class="nav-link" href="?action=listEmpl">Employes &nbsp; <span style="font-size:16px;" ></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="?action=afficherDonsEmployes">Statistiques &nbsp; <span style="font-size:16px;" ></a>
+			<a class="nav-link" href="">Statistiques &nbsp; <span style="font-size:16px;" ></a>
 		</li>
 		<!-- -->
 		<?php    
@@ -87,14 +135,14 @@ $(document).ready(function(){
 				<a class="nav-link" href="?action=afficherMesDons">Mes dons &nbsp; <span style="font-size:16px;" ></a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="?action=profilEmploye">Profil &nbsp; <span style="font-size:16px;" ></a>
+				<a class="nav-link" href="?action=modifEmpl">Profil &nbsp; <span style="font-size:16px;" ></a>
 			</li>
 			<?php   
 			}
 		?>
 		<!-- -->
 		<li class="nav-item">
-			<a class="nav-link" href="?action=deconnecter">D&#233connecter &nbsp;<?php echo $_SESSION["connected"]; ?>&nbsp;<i style="font-size:16px;" class="fa fa-power-off"></i></a>
+                    <a class="nav-link" href="?action=deconnecter">D&#233connecter (<?php echo $_SESSION["connected"]; ?>)<i style="font-size:16px;" <!--class="fa fa-power-off"--></i></a>
 		</li>
 		<?php	
 			}
@@ -115,6 +163,8 @@ $(document).ready(function(){
   <div class="container">
     <h1 class="display-4">LogiDons</h1>
     <h4 class="display-5">Gestion des dons pour un centre d’aide aux démunis.</h4>
+    
+    
   </div>
 </div>
 <!-- Content  -->			

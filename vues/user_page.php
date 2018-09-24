@@ -1,22 +1,29 @@
 
 <div id="main_page">
-    Bienvenue!
+    
     <br>
 <?php
 $user= UserDAO::findUser($_SESSION["connected"]);
 $typeUser=$user->getType_user();
+$nom=$user->getNom();
+$prenom=$user->getPrenom();
 if($typeUser=='sup'){
  ?>   
-    Hello Superviseur
+    Bienvenue, <?php echo $nom." ".$prenom ?>
     
 <?php    
 }
 elseif ($typeUser=='emp') {
 ?>
-    Hello employe
+    Bienvenue, <?php echo $nom." ".$prenom ?>
  <?php   
 }
+elseif ($typeUser=='ben') {
     ?>
+    Bienvenue, <?php echo $nom." ".$prenom ?>
+    <?php
+}
+?>
 </div>
 
 

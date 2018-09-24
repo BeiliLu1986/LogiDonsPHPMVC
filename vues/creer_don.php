@@ -9,7 +9,7 @@
 <div class="container py-5">
     <div class="row">
         <div class="col-md-10 mx-auto">
-            <form action="" method="post">
+            <form action="" method="post" id="newDon">
                 <div class="form-group row">
                     <div class="col-sm-6">
 						<label for="typeDeDon">* Type de don</label>
@@ -23,7 +23,7 @@
 				    </div>
                     <div class="col-sm-6">
 						<label for="email">* Courriel</label>
-						<input required type="email" name="email" class="form-control" id="email" placeholder="votre@courriel.com">
+						<input required type="email" name="email" class="form-control" id="email" placeholder="votre@courriel.com" autocomplete="false">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -33,7 +33,7 @@
                     </div>
                     <div class="col-sm-6">
 						<label for="nom">* Nom</label>
-						<input required type="text" class="form-control" name="nom" id="nom" placeholder="Votre nom" >
+						<input required type="text" class="form-control" name="nom" id="nom" placeholder="Votre nom"  autocomplete="false">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -59,8 +59,8 @@
                                                 <input required type="date" class="form-control" id="dateLiv" name="dateLivraison" value="">
                     </div>
                     <div class="col-sm-6">
-						<label for="tel">* Téléphone</label>
-						<input required type="text" name="tel" class="form-control" id="tel" placeholder="tel" >
+                        <label for="tel">* Téléphone <small>(format: 000-000-0000)</small></label>
+						<input required type="text" name="tel" class="form-control" id="tel" placeholder="000-000-0000" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" minlength="12" maxlength="12">
                     </div>
                 </div>
 				<div class="form-group row">
@@ -84,21 +84,21 @@
 					</div>
 					<div class="col-sm-3">
                         <label for="codePostP">* Code postale</label>
-						<input required type="text" name="codePostale" class="form-control" id="codePostale" placeholder="Code postale">
+						<input required type="text" name="codePostale" class="form-control" id="codePostale" placeholder="Code postale" minlength="6" maxlength="6">
 					</div>
                     <div class="col-sm-3">
 					    <label for="province">* Province</label>
-						<select required name="province" id="province" class="selectpicker form-control">
-							<option value="Quebec">Quebec</option>
-							<option value="Ontario">Ontario</option>
-							<option value="NScotia">Nova Scotia</option>
-							<option value="NewB">New Brunswick</option>
-							<option value="Manitoba">Manitoba</option>
-							<option value="BC">British Columbia</option>
-							<option value="PEI">Prince Edward Isladn</option>
-							<option value="Saskat">Saskatchewan</option>
-							<option value="Alberta">Alberta</option>
-							<option value="NyL">Newfoundland and Labrador</option>
+                                                <select required name="province" class="selectpicker form-control">
+							<option>Quebec</option>
+							<option>Ontario</option>
+							<option>Nova Scotia</option>
+							<option>New Brunswick</option>
+							<option>Manitoba</option>
+							<option>British Columbia</option>
+							<option>Prince Edward Isladn</option>
+							<option>Saskatchewan</option>
+							<option>Alberta</option>
+							<option>Newfoundland and Labrador</option>
 						</select>
 				    </div>
                 </div>

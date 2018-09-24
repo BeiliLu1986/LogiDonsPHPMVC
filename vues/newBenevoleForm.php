@@ -14,13 +14,13 @@
                 <div class="form-group row">
                     <div class="col-sm-6">
 						<label for="email">* Courriel</label>
-						<input type="" name="courriel" id="courriel" class="form-control" placeholder="votre@courriel.com" />
+                                                <input required type="" name="courriel" id="courriel" class="form-control" placeholder="votre@courriel.com" />
 						<label for="password">* Mot de passe</label>
-						<input type="password" name="password" id="password" class="form-control" placeholder="Votre mot de passe"  />
+						<input required type="password" name="password" id="password" class="form-control" placeholder="Votre mot de passe"  />
 						<label for="nom">* Nom</label>
-						<input type="text" name="nomBen" id="nomBen" class="form-control" placeholder="Nom"  />
+						<input required type="text" name="nomBen" id="nomBen" class="form-control" placeholder="Nom"  />
 						<label for="prenom">* Prenom</label>
-						<input type="text" name="prenomBen" id="prenomBen" class="form-control" placeholder="Prénom"  />
+						<input required type="text" name="prenomBen" id="prenomBen" class="form-control" placeholder="Prénom"  />
 				    </div>
 					<div class="col-sm-3">
 						<label for="">* Ma disponibilité :</label>
@@ -64,28 +64,28 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6">
-						<label for="tel">* Téléphone</label>
-						<input type="text" name="tel" id="tel" class="form-control" placeholder="Téléphone"  />
+						<label for="tel">* Téléphone <small>(format: 000-000-0000)</small></label>
+						<input required type="tel" name="tel" id="tel" class="form-control" placeholder="000-000-0000"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" minlength="12" maxlength="12" />
                     </div>
                 </div>
 				<div class="form-group row">
                     <div class="col-sm-3">
 						 <label for="adresse">* Adresse</label>
-						 <input type="text" name="adresse" id="adresse" class="form-control" placeholder="Adresse"  />
+						 <input required type="text" name="adresse" id="adresse" class="form-control" placeholder="Adresse"  />
                     </div>
 					<div class="col-sm-3">
 						<label for="ville">* Ville</label>
-						<input type="text" name="ville" id="ville" class="form-control" placeholder="Ville" />
+						<input required type="text" name="ville" id="ville" class="form-control" placeholder="Ville" />
                     </div>
                 </div>
 				<div class="form-group row">
                     <div class="col-sm-3">
 						 <label for="codePostP">* Code postale</label>
-						 <input type="text" name="codePost" id="codePost" class="form-control" placeholder="CodePostal"  />
+						 <input required type="text" name="codePost" id="codePost" class="form-control" placeholder="Code postale" minlength="6" maxlength="6" />
                     </div>
 					<div class="col-sm-3">
 						<label for="province" >* Province</label>
-						<select name="prov" class="selectpicker form-control">
+						<select required name="prov" class="selectpicker form-control">
 							<option>Quebec</option>
 							<option>Ontario</option>
 							<option>Nova Scotia</option>

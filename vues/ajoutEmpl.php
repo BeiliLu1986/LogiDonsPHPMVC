@@ -21,7 +21,7 @@
 		</div>
 		<div class="form-group">
 			<label for="tel">* Téléphone</label>
-			<input required type="text" name="telEmpl" class="form-control" placeholder="514-123-4567">
+			<input required type="text" name="telEmpl" class="form-control" placeholder="000-000-0000">
 		</div>
 		<div class="form-group">
 			<label for="email">* Courriel</label>
@@ -39,7 +39,7 @@
 		</div>
 		<div class="form-group">
 			<label for="province" >* Province</label>
-			<select name="prov" class="selectpicker form-control">
+			<select required name="prov" class="selectpicker form-control">
 				<option>Quebec</option>
 				<option>Ontario</option>
 				<option>Nova Scotia</option>

@@ -27,24 +27,24 @@
 require_once('./modele/DonDAO.class.php');
 require_once('./modele/classes/Liste.class.php');
 require_once('./modele/classes/User.class.php');
-
+require_once('./modele/UserDAO.class.php');
 
 
 $dao = new DonDAO();
-
-
-if (!ISSET($_SESSION)) session_start();
+//
 	if (ISSET($_SESSION["connected"]))
 	{
-		require_once('./modele/UserDAO.class.php');
+		
 		$user= UserDAO::findUser($_SESSION["connected"]);
 		$idEmpl=$user->getId_user();
-        $liste = $dao->findEmplsDon($idEmpl);
+                $nom=$user->getNom();
+                $prenom=$user->getPrenom();
+                $liste = $dao->findEmplsDon($idEmpl);
 	}
 ?>
 <div class="page-header">
 	<h1>
-		Table de dons <small>&nbsp;<?php echo $_SESSION["connected"]; ?></small>
+		<small>Les dons afféctés à <?php echo $nom." ".$prenom ?></small>
 	</h1>
 </div>
 <br>
@@ -65,14 +65,32 @@ if (!ISSET($_SESSION)) session_start();
 while ($liste->next())
 {
 	$p = $liste->current();
+        
+        //afficher le status correctement
+        $status=$p->getStatus();
+        $sFr="";
+        if($status=='acc'){$sFr='Accepté';}
+        elseif ($status=='ref') {$sFr='Refusé';}
+        else {$sFr='Nouveau';}
+        
+        //afficher le type de don correctement
+        $type=$p->getType_don();
+        $typeFr="";
+        if($type=='hab'){$typeFr='habillement';}
+        elseif ($type=='arg'){$typeFr='argent';}
+        elseif ($type=='nou'){$typeFr='nourriture';}
+        elseif ($type=='ame'){$typeFr='ameublement';}
+        else{$typeFr='inconnue???Errorrrr!!!';}
+        
 	if ($p!=null)
 	{
+            
 		echo "
 		<tr>
 		<td>".$p->getId_don()."</td>
-		<td>".$p->getType_don()."</td>
+		<td>".$typeFr."</td>
 		<td>".$p->getDescription()."</td>
-		<td>".$p->getStatus()."</td>
+		<td>".$sFr."</td>
 		
 	    <td class ='text-center'>
 		<a href='?action=accepterDon&donAccepter=".$p->getId_don()."' class='btn btn-success' title='Accepter Don' ><i class='fa fa-check'></i></a> 
