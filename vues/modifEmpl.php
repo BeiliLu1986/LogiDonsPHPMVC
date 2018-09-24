@@ -1,16 +1,35 @@
-<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+
 <div class="row">
 		<div class="col-md-12">
 			<div class="row">
 				<div class="col-md-4">
 				</div>
 				<div class="col-md-4">
-					<h1>Modifier l'employe</h1><input type="text" id="pass_data" class="form-control">
+			    <?php include("chercherEmpl.php"); ?>
 <?php
 require_once('/modele/UserDAO.class.php');
-$id= ''; //$_REQUEST["idUser"]
+
+$nom="";
+$prenom="";
+$email="";
+$tel="";
+$ville="";
+$prov="";
+$codePost="";
+$adresse="";
+$pass="";
+
+if(isset($_POST['ok']))
+{
+$m = $_POST['subject'];
+
+$id =$m; //$_REQUEST["idUser"]
+
 $nom=$prenom=$email=$tel=$ville=$prov=$codePost=$adresse=$pass="";
 $user=UserDAO::findById($id);
+
+
+
 if($user!=NULL){
 $nom=$user->getNom();
 $prenom=$user->getPrenom();
@@ -21,6 +40,8 @@ $prov=$user->getProvince();
 $codePost=$user->getCode_postale();
 $adresse=$user->getAdresse();
 $pass=$user->getPassword();
+}
+
 }
 ?>
 					<hr>

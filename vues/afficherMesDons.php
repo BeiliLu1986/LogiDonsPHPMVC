@@ -31,14 +31,7 @@ require_once('./modele/classes/User.class.php');
 
 
 $dao = new DonDAO();
-/*
-if (ISSET($_REQUEST["numASupprimer"]))
-{
-	$x = new Items();
-	$x->setIdItem($_REQUEST["numASupprimer"]);
-	$dao->delete($x);
-}
-*/
+
 
 if (!ISSET($_SESSION)) session_start();
 	if (ISSET($_SESSION["connected"]))

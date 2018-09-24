@@ -175,7 +175,7 @@ class DonDAO
         
         //accepter le don
         public static function accepterDon($idDon){
-            $sql = "UPDATE don SET status = 'acc' WHERE id_don = '$idDon'";
+			$sql = "UPDATE don SET status = 'acc' WHERE id_don = '$idDon'";
 		try
 		{
 			$db = Database::getInstance();
