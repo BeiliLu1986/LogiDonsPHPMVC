@@ -75,7 +75,7 @@ $(document).ready(function(){
 			<a class="nav-link" href="?action=listEmpl">Employes &nbsp; <span style="font-size:16px;" ></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="">Statistiques &nbsp; <span style="font-size:16px;" ></a>
+			<a class="nav-link" href="?action=afficherDonsEmployes">Statistiques &nbsp; <span style="font-size:16px;" ></a>
 		</li>
 		<!-- -->
 		<?php    

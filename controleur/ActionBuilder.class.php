@@ -9,6 +9,7 @@ require_once('./controleur/AfficherMesDonsAction.class.php');
 require_once('./controleur/AfficherDesEmployesAction.class.php');
 require_once('./controleur/AjouterEmployeAction.class.php');
 require_once('./controleur/ModifierEmployeAction.class.php');
+require_once('./controleur/AfficherDonsEmployes.class.php');
 
 
 class ActionBuilder{
@@ -36,12 +37,15 @@ class ActionBuilder{
 			case "listEmpl" :
 				return new AfficherDesEmployesAction();
 				break;
-                        case "ajoutEmpl" :
+            case "ajoutEmpl" :
 				return new AjouterEmployeAction();
 				break;
-                        case "modifEmpl" :
+            case "modifEmpl" :
 				return new ModifierEmployeAction();
-				break;    
+				break;  
+            case "afficherDonsEmployes" :
+				return new AfficherDonsEmployes();
+				break; 				
 			default :
 				return new DefaultAction();
 		}

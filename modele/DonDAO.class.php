@@ -42,7 +42,7 @@ class DonDAO
     public static function countEmplsDons(){
         $liste= UserDAO::findAllEmpls();
         $cnx = Database::getInstance();
-        $listeD=new Liste();
+        $listeD = new Liste();
             while ($liste->next()){
                 $p=$liste->current();
                 $id_user=$p->getId_user();
@@ -119,6 +119,32 @@ class DonDAO
 		}	
         }
         
+		//*****
+		 
+      //recherche tous les dons 
+        public static function findEmplsDonAll(){
+            try {
+			$liste = new Liste();
+		
+			$requete = "SELECT * FROM don d,employes_dons e  WHERE  d.id_don = e.don";
+			$cnx = Database::getInstance();
+			
+			$res = $cnx->query($requete);
+		    foreach($res as $row) {
+				$d = new Don();
+				$d->loadFromRecord($row);
+				$liste->add($d);
+		    }
+			$res->closeCursor();
+		    $cnx = null;
+			return $liste;
+		} catch (PDOException $e) {
+		    print "Error!: " . $e->getMessage() . "<br/>";
+		    return $liste;
+		}	
+        }
+		
+		//****
         //recherche du don selon son id
         public static function findDon($idDon){
                 $db = Database::getInstance();

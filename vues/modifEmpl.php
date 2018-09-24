@@ -8,9 +8,7 @@
 					<h1>Modifier l'employe</h1><input type="text" id="pass_data" class="form-control">
 <?php
 require_once('/modele/UserDAO.class.php');
-
-
-$id= 'user01'; //$_REQUEST["idUser"]
+$id= ''; //$_REQUEST["idUser"]
 $nom=$prenom=$email=$tel=$ville=$prov=$codePost=$adresse=$pass="";
 $user=UserDAO::findById($id);
 if($user!=NULL){
