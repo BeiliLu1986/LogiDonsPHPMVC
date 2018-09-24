@@ -39,7 +39,7 @@
 		</div>
 		<div class="form-group">
 			<label for="province" >* Province</label>
-			<select required name="prov" class="selectpicker form-control">
+			<select required name="provEmpl" class="selectpicker form-control">
 				<option>Quebec</option>
 				<option>Ontario</option>
 				<option>Nova Scotia</option>

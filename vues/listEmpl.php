@@ -16,17 +16,17 @@
 		</div>
 </div>
 <div class="table-responsive">
-<table class="table">
+<table class="table table-hover">
     <tr>
-    <th>Nom</th>
-    <th>Prenom</th>
-    <th>Courriel</th>
-    <th>Téléphone</th>
-    <th>Adresse</th>
-    <th>Code Postale</th>
-    <th>Ville</th>
-    <th>Province</th>
-    <th></th>
+    <th scope="col">Nom</th>
+    <th scope="col">Prenom</th>
+    <th scope="col">Courriel</th>
+    <th scope="col">Téléphone</th>
+    <th scope="col">Adresse</th>
+    <th scope="col">Code Postale</th>
+    <th scope="col">Ville</th>
+    <th scope="col">Province</th>
+    <th scope="col"></th>
     </tr>
 <?php
 require_once('/modele/UserDAO.class.php');
@@ -47,15 +47,15 @@ while($liste->next()){
     $prov=$u->getProvince();
     
     echo '<tr>
-			<td>'.$nom.'</td>
-			<td>'.$prenom.'</td>
-			<td>'.$email.'</td>
-			<td>'.$tel.'</td>
-			<td>'.$adresse.'</td>
-            <td>'.$codePost.'</td>
-			<td>'.$ville.'</td>
-			<td>'.$prov.'</td>
-			<td><a href="?action=modifEmpl&idEmp='.$id_user.' " class="btn btn-success" title="Modifier employe" ><i class="fa fa-pencil" style="color:white;"></i></td>
+			<td scope="row">'.$nom.'</td>
+			<td scope="row">'.$prenom.'</td>
+			<td scope="row">'.$email.'</td>
+			<td scope="row">'.$tel.'</td>
+			<td scope="row">'.$adresse.'</td>
+            <td scope="row">'.$codePost.'</td>
+			<td scope="row">'.$ville.'</td>
+			<td scope="row">'.$prov.'</td>
+			<td scope="row"><a href="?action=modifEmpl&idEmp='.$id_user.' " class="btn btn-success" title="Modifier employe" ><i class="fa fa-pencil" style="color:white;"></i></td>
 			</tr>';
     }
 }
