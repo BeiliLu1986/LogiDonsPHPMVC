@@ -87,7 +87,7 @@ $(document).ready(function(){
 				<a class="nav-link" href="?action=afficherMesDons">Mes dons &nbsp; <span style="font-size:16px;" ></a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="">Profil &nbsp; <span style="font-size:16px;" ></a>
+				<a class="nav-link" href="?action=profilEmploye">Profil &nbsp; <span style="font-size:16px;" ></a>
 			</li>
 			<?php   
 			}

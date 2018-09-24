@@ -10,6 +10,7 @@ require_once('./controleur/AfficherDesEmployesAction.class.php');
 require_once('./controleur/AjouterEmployeAction.class.php');
 require_once('./controleur/ModifierEmployeAction.class.php');
 require_once('./controleur/AfficherDonsEmployes.class.php');
+require_once('./controleur/ProfilEmploye.class.php');
 
 
 class ActionBuilder{
@@ -45,7 +46,12 @@ class ActionBuilder{
 				break;  
             case "afficherDonsEmployes" :
 				return new AfficherDonsEmployes();
-				break; 				
+				break; 	
+			case "profilEmploye" :
+				return new ProfilEmploye();
+				break;
+
+				
 			default :
 				return new DefaultAction();
 		}
