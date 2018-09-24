@@ -136,12 +136,17 @@ class User {
 	public function loadFromRecord($ligne)
 	{
 		$this->id_user = $ligne["id_user"];
-                $this->nom = $ligne["nom"];
+        $this->nom = $ligne["nom"];
 		$this->prenom = $ligne["prenom"];
-                $this->type_user = $ligne["type_user"];
-                $this->courriel = $ligne["courriel"];
-                $this->nom_organis = $ligne["nom_organis"];
-                $this->password = $ligne["password"];
+        $this->type_user = $ligne["type_user"];
+        $this->courriel = $ligne["courriel"];
+        $this->nom_organis = $ligne["nom_organis"];
+		$this->adresse = $ligne["adresse"];
+		$this->ville = $ligne["ville"];
+		$this->province = $ligne["province"];
+		$this->telephone = $ligne["telephone"];
+		$this->code_postale = $ligne["code_postale"];
+        $this->password = $ligne["password"];
 	}
         public function loadEmplFromRecord($ligne)
 	{
