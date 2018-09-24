@@ -15,10 +15,22 @@ $codePost=$user->getCode_postale();
 $adresse=$user->getAdresse();
 $pass=$user->getPassword();
 }
-
 ?>
+<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
+				</div>
+				<div class="col-md-4">
+					<h1>Modifier l'employe</h1>
+					<hr>
+				</div>
+				<div class="col-md-4">
+				</div>
+			</div>
+		</div>
+</div>
 
-<h1>Modifier l'employe</h1>
 <form method="post">
     <div><label for="nom">Nom</label><input required type="text" name="nomEmplMod" value="<?=$nom?>"></div>
 <div><label for="prenom">Prenom</label><input required type="text" name="prenomEmpl" value="<?=$prenom?>"></div>
