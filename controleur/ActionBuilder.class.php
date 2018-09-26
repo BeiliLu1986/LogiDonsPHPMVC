@@ -12,6 +12,7 @@ require_once('./controleur/ModifierEmployeAction.class.php');
 require_once('./controleur/RefuserDonAction.class.php');
 require_once('./controleur/AccepterDonAction.class.php');
 require_once('./controleur/ListeDonAction.class.php');
+require_once('./controleur/StatistiqueAction.class.php');
 
 class ActionBuilder{
 	public static function getAction($nomAction){
@@ -52,6 +53,9 @@ class ActionBuilder{
 				break; 
                         case "listDons" :
 				return new ListeDonAction();
+				break;    
+                        case "stat" :
+				return new StatistiqueAction();
 				break;    
 			default :
 				return new DefaultAction();
