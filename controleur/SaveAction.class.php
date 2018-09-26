@@ -70,11 +70,13 @@ class SaveAction implements Action {
             $dao->addDon($newDon);
             
             $empl= DonDAO::findMinQuantEmplsDons();
-            if(DonDAO::affecterDon($empl, $id_don)){
-                $_REQUEST["field_messages"]["mess"]="Le don est sauvegardé";
-            }
-            else {$_REQUEST["field_messages"]["mess"]="On a une erreur!";}
+            DonDAO::affecterDon($empl, $id_don);
             
+            //afficher la confirmation aprês l`ajout d`un nouveau don
+                $message='Le don a été ajouté.';
+                echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+
+
             return "default";    
             
                 }
@@ -96,7 +98,7 @@ class SaveAction implements Action {
             else{
                 $id_user=UserDAO::creerUserId($id);
             }
-            //creer un user et l'inserer dans le BD
+            //creer un user-bénévole et l'inserer dans le BD
             
             $newUser=new User();
             $newUser->setId_user($id_user);
@@ -112,12 +114,17 @@ class SaveAction implements Action {
             $newUser->setAdresse($_REQUEST["adresse"]);
             $userDao=new UserDAO();
             $userDao->addBenevole($newUser);
+			
+            //afficher la confirmation apres la creation d`un bénévole
+                $message='Le nouveau benevole a été ajouté.';
+                echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
             
             return "default";
             
             
             } 
             
+    //creation d`un utilisateur
         elseif (isset($_REQUEST["nomEmpl"])){
             require_once('/modele/UserDAO.class.php');
             require_once('/modele/classes/User.class.php');
@@ -148,7 +155,9 @@ class SaveAction implements Action {
             
             return "listEmpl";
           }   
+       
           
+          //modification de profil d`un employe
     elseif (isset($_REQUEST["nomEmplMod"])){
             require_once('/modele/UserDAO.class.php');
             require_once('/modele/classes/User.class.php');
