@@ -1,6 +1,7 @@
 <?php
 include_once('/modele/classes/Database.class.php'); 
-include_once('/modele/classes/Don.class.php'); 
+include_once('/modele/classes/Don.class.php');
+include_once('/modele/classes/DonEmpl.class.php');
 include_once('/modele/classes/Liste.class.php'); 
 include_once('/modele/classes/User.class.php'); 
 
@@ -119,19 +120,20 @@ class DonDAO
 		}	
         }
         
-		//*****
+		
 		 
       //recherche tous les dons 
         public static function findEmplsDonAll(){
             try {
 			$liste = new Liste();
 		
-			$requete = "SELECT * FROM don d,employes_dons e  WHERE  d.id_don = e.don";
+			$requete = "SELECT d.id_don,d.type_don, d.description, d.status, "
+                                . "u.nom, u.prenom FROM don d, user u, employes_dons e WHERE d.id_don = e.don AND e.employe=u.id_user";
 			$cnx = Database::getInstance();
 			
 			$res = $cnx->query($requete);
 		    foreach($res as $row) {
-				$d = new Don();
+				$d = new DonEmpl();
 				$d->loadFromRecord($row);
 				$liste->add($d);
 		    }
@@ -144,7 +146,7 @@ class DonDAO
 		}	
         }
 		
-		//****
+		
         //recherche du don selon son id
         public static function findDon($idDon){
                 $db = Database::getInstance();
