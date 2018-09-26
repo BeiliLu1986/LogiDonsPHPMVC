@@ -45,17 +45,19 @@ if($liste!=NULL){
         if($s=='acc'){$status='Accepté';}
         elseif ($s=='ref') {$status='Refusé';}
         else {$status='Nouveau';}
-    }
-}
-
-    
-    echo '<tr>
+        
+        echo '<tr>
 			<td scope="row">'.$id_don.'</td>
 			<td scope="row">'.$type.'</td>
 			<td scope="row">'.$descr.'</td>
 			<td scope="row">'.$status.'</td>
 			<td scope="row">'.$nom." ".$prenom.'</td>
 			</tr>';
+    }
+}
+
+    
+    
     
 ?>
 </table>
