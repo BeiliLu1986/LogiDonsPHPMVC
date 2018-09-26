@@ -122,7 +122,7 @@ class DonDAO
         
 		
 		 
-      //recherche tous les dons 
+      //recherche de tous les dons de chaque employe 
         public static function findEmplsDonAll(){
             try {
 			$liste = new Liste();
@@ -145,6 +145,75 @@ class DonDAO
 		    return $liste;
 		}	
         }
+        
+        
+        //recherche de tous les dons
+        public static function countAllDons(){
+            $cnx = Database::getInstance();
+            $sql="SELECT * FROM don";
+                $stmt = $cnx->prepare($sql);
+                    try { $stmt->execute();}
+                    catch(PDOException $e)
+                    {echo $e->getMessage();}
+                    $count=$stmt->rowCount();
+                    
+                        return $count;
+        }
+		
+		
+		//recherche de moyen des dons par jour
+        public static function findAllDons(){
+            try {
+			$liste = new Liste();
+			$requete = "SELECT * FROM don";
+			$cnx = Database::getInstance();
+			
+			$res = $cnx->query($requete);
+		    foreach($res as $row) {
+				$d = new Don();
+				$d->loadFromRecord2($row);
+				$liste->add($d);
+		    }
+			$res->closeCursor();
+		    $cnx = null;
+                    return $liste;
+		} catch (PDOException $e) {
+		    print "Error!: " . $e->getMessage() . "<br/>";
+		    return $liste;
+		}	
+        }
+	
+        
+        
+        public static function findMoyenDonsJour(){
+            $liste= DonDAO::findAllDons();
+			$count= DonDAO::countAllDons();
+            date_default_timezone_set('America/New_York');
+            $dCreate="";
+                    if($liste!=NULL){
+                        if ($liste->next()){
+                            $p=$liste->current();
+                        }}
+                        $dCreate=$p->getDate_creation();
+                        while($liste->next()){
+                            $d=$liste->current();
+                            $date=$d->getDate_creation();
+                            if($date<$dCreate){
+                                $dCreate=$date;
+                            }
+                        }
+                  
+                
+                    $now = time(); // or your date as well
+                    $your_date = strtotime($dCreate);
+                    $datediff = $now - $your_date;
+
+                    $daysAll=round($datediff / (60 * 60 * 24));
+                    $moyen= round($count/$daysAll,2);
+                    return $moyen;
+            
+        }                      
+		
 		
 		
         //recherche du don selon son id
@@ -204,6 +273,8 @@ class DonDAO
 		}
             
         }
+        
+        
 }
 ?>
 
