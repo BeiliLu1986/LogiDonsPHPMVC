@@ -119,6 +119,9 @@ $(document).ready(function(){
 			if($typeUser=='sup'){
 		?>   
 		<!-- Partie Superviseur -->
+                <li class="nav-item">
+			<a class="nav-link" href="?action=listDons">Dons &nbsp; <span style="font-size:16px;" ></a>
+		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="?action=listEmpl">Employes &nbsp; <span style="font-size:16px;" ></a>
 		</li>
