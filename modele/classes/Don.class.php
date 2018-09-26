@@ -10,6 +10,7 @@ class Don {
         private $quantite;
         private $montant;
         private $status;
+        private $date_creation;
 
 
 
@@ -55,6 +56,11 @@ class Don {
             return $this->status;
         }
 
+        function getDate_creation() {
+            return $this->date_creation;
+        }
+
+                
         function setId_don($id_don) {
             $this->id_don = $id_don;
         }
@@ -91,7 +97,12 @@ class Don {
             $this->status = $status;
         }
 
-                                        
+        function setDate_creation($date_creation) {
+            $this->date_creation = $date_creation;
+        }
+
+        
+        
         public function __toString()
 	{
 		return "".$this->type_don.",".$this->description.",".$this->date_livr.",".$this->quantite.",".$this->montant.",".$this->donateur."]";
@@ -111,6 +122,12 @@ class Don {
 		$this->quantite = $don["quantite"];
                 $this->montant = $don["montant"];
                 $this->status=$don["status"];
+                $this->date_creation=$don["date_creation"];
+	}
+        
+        public function loadFromRecord2($don)
+	{
+                $this->date_creation=$don["date_creation"];
 	}
 }
 ?>
