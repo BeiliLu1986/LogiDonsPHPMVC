@@ -9,7 +9,7 @@
 							<img class="rounded-circle img-fluid d-block mx-auto" src="./img/benevole.png" alt="">
 							<h3>Je suis un bénévole</h3>
 							<p><br></p>
-							<button type="button" class="btn btn-info">M'enregistrer</button>
+							<button type="button" class="btn btn-info" onclick="location.href = '?action=newBenevole'">M'enregistrer</button>
 						</div>
 						<div class="col-lg-6 col-sm-6 text-center mb-4">
 							<img class="rounded-circle img-fluid d-block mx-auto" src="./img/donateur.png" alt="">

@@ -27,7 +27,7 @@ $pass=$user->getPassword();
 				<div class="col-md-4">
 				</div>
 				<div class="col-md-4">
-					<h1>Modifier l'employe</h1>
+					<h1>Modifier mon compte</h1>
 					<hr>
 				</div>
 				<div class="col-md-4">
@@ -53,7 +53,7 @@ $pass=$user->getPassword();
 	</div>
     <div class="form-group">
 		<label for="tel">Téléphone</label>
-		<input required type="text" name="telEmpl" id="telEmpl" value="<?=$tel?>"class="form-control">
+		<input required type="text" name="telEmpl" id="telEmpl" value="<?=$tel?>"class="form-control" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" minlength="12" maxlength="12">
 	</div>
     <div class="form-group">
 		<label for="ville">Ville</label>
@@ -65,7 +65,7 @@ $pass=$user->getPassword();
 		</div>
     <div class="form-group">
 		<label for="code">Code postale</label>
-		<input required type="text" name="codeEmpl" id="codeEmpl" value="<?=$codePost?>" class="form-control">
+		<input required type="text" name="codeEmpl" id="codeEmpl" value="<?=$codePost?>" class="form-control" minlength="6" maxlength="6">
 	</div>
     <div class="form-group">
 		<label for="adresse">Adresse</label>

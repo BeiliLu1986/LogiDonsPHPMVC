@@ -90,16 +90,21 @@ $(document).ready(function(){
     <?php
                 if (!ISSET($_SESSION)) session_start();
                 ?>
+	
 <!-- MENU -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-  <a class="navbar-brand" href="">LogiDons</a>
+  <a class="navbar-brand" href="?action=default">LogiDons</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+	<?php
+			if (!ISSET($_SESSION["connected"]))
+			{
+				?>
 		<li class="nav-item active" >
-			<a class="nav-link" href="?action=">Accueil &nbsp;<span style="font-size:16px;" ></span></a>
+			<a class="nav-link" href="?action=default">Accueil &nbsp;<span style="font-size:16px;" ></span></a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="?action=creerDon">Faire un don &nbsp; <span style="font-size:16px;"></a>
@@ -107,12 +112,12 @@ $(document).ready(function(){
 		<li class="nav-item">
 			<a class="nav-link" href="?action=newBenevole">Bénévolat &nbsp; <span style="font-size:16px;"></a>
 		</li>
-                <?php
-//                if (!ISSET($_SESSION)) session_start();
-			if (ISSET($_SESSION["connected"]))
-			{
-		?>
-		<?php
+		<li class="nav-item">
+			<a class="nav-link" href="?action=connecter">Se connecter &nbsp;<i style="font-size:16px;" class="fa fa-user"></i></a>
+		</li>
+			<?php
+			}
+	else{	
 		require_once('./modele/UserDAO.class.php');
 			$user= UserDAO::findUser($_SESSION["connected"]);
 			$typeUser=$user->getType_user();
@@ -124,6 +129,9 @@ $(document).ready(function(){
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="?action=listEmpl">Employes &nbsp; <span style="font-size:16px;" ></a>
+		</li>
+                <li class="nav-item">
+			<a class="nav-link" href="?action=listBenevoles">Bénévoles &nbsp; <span style="font-size:16px;" ></a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="?action=stat" >Statistiques &nbsp; <span style="font-size:16px;" ></a>
@@ -141,24 +149,25 @@ $(document).ready(function(){
 				<a class="nav-link" href="?action=modifEmpl">Profil &nbsp; <span style="font-size:16px;" ></a>
 			</li>
 			<?php   
+			   
+			}
+			elseif ($typeUser=='ben') {
+			?>
+			<!-- Partie Benevole -->
+			<li class="nav-item">
+				<a class="nav-link" href="?action=modifEmpl">Profil &nbsp; <span style="font-size:16px;" ></a>
+			</li>
+			<?php   
 			}
 		?>
-		<!-- -->
 		<li class="nav-item">
                     <a class="nav-link" href="?action=deconnecter">D&#233connecter (<?php echo $_SESSION["connected"]; ?>)<i style="font-size:16px;" <!--class="fa fa-power-off"--></i></a>
 		</li>
-		<?php	
-			}
-			else
-			{
-		?>
-		<li class="nav-item">
-			<a class="nav-link" href="?action=connecter">Se connecter &nbsp;<i style="font-size:16px;" class="fa fa-user"></i></a>
-		</li>
+		</ul>
 		<?php	
 			}
 		?>	
-    </ul>
+    
    </div>
 </nav>
 <!-- MENU -->
