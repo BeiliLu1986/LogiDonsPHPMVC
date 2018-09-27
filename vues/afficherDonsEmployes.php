@@ -84,7 +84,7 @@ while ($liste->next())
 					$('#items_data').DataTable({
 							dom: 'Bfrtip',
 							buttons:[
-									{ extend: 'print', text: 'Empprimer table' }
+									{ extend: 'print', text: 'Imprimer table' }
 									],
 									
 							"language":{

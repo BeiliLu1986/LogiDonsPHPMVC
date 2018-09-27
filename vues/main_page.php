@@ -126,7 +126,7 @@ $(document).ready(function(){
 			<a class="nav-link" href="?action=listEmpl">Employes &nbsp; <span style="font-size:16px;" ></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="?action=listEmpl" >Statistiques &nbsp; <span style="font-size:16px;" ></a>
+			<a class="nav-link" href="?action=stat" >Statistiques &nbsp; <span style="font-size:16px;" ></a>
 		</li>
 		<!-- -->
 		<?php    
@@ -135,7 +135,7 @@ $(document).ready(function(){
 			?>
 			<!-- Partie Employe -->
 			<li class="nav-item">
-				<a class="nav-link" href="?action=afficherMesDons">Mes dons &nbsp; <span style="font-size:16px;" ></a>
+				<a class="nav-link" href="?action=afficherMesDons">Dons à traiter &nbsp; <span style="font-size:16px;" ></a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="?action=modifEmpl">Profil &nbsp; <span style="font-size:16px;" ></a>

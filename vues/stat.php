@@ -16,7 +16,7 @@ if($count!=NULL && $jour!=NULL){
         <td>Total de dons  : </td><td><?php echo $total?></td>
     </tr>
     <tr>
-        <td>Moyen par jour   :</td><td><?php echo $j?></td>
+        <td>Moyen par jour  :</td><td><?php echo $j?></td>
     </tr>
 
 </table>
