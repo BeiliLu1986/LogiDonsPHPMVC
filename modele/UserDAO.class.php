@@ -136,12 +136,13 @@ class UserDAO
 		$db = Database::getInstance();
 		try {
                 $pstmt = $db->prepare("INSERT INTO user (id_user ,nom,prenom,type_user,courriel,nom_organis,telephone,"
-                        . "ville,province,code_postale,adresse,password)".
-                                                  " VALUES (:a,:b,:c,:d,:e,:f,:g,:h,:i,:m,:y,:x)");
+                        . "ville,province,code_postale,adresse,password,dispo)".
+                                                  " VALUES (:a,:b,:c,:d,:e,:f,:g,:h,:i,:m,:y,:x,:u)");
                 $n = $pstmt->execute(array(':a' => $newUser->getId_user(),':b' => $newUser->getNom(),
                     ':c' => $newUser->getPrenom(),':d' => $newUser->getType_user(),':e' => $newUser->getCourriel(),
                     ':f' => $newUser->getNom_organis(),':g' => $newUser->getTelephone(),':h' => $newUser->getVille(),
-                    ':i' => $newUser->getProvince(),':m' => $newUser->getCode_postale(),':y' => $newUser->getAdresse(),':x' => $newUser->getPassword()));
+                    ':i' => $newUser->getProvince(),':m' => $newUser->getCode_postale(),':y' => $newUser->getAdresse(),
+                    ':x' => $newUser->getPassword(),':u'=>$newUser->getDisponibilite()));
 
                 $pstmt->closeCursor();
                 $pstmt = NULL;
@@ -176,6 +177,20 @@ class UserDAO
                         . "courriel = '".$x->getCourriel()."', telephone = '".$x->getTelephone()."', ville = '".$x->getVille()."', "
                         . "province = '".$x->getProvince()."', code_postale = '".$x->getCode_postale()."', adresse = '".$x->getAdresse()."', password = '".$x->getPassword()."'"
                         . " WHERE id_user = '".$x->getId_user()."'";
+		try
+		{
+			$db = Database::getInstance();
+			return $db->exec($request);
+		}
+		catch(PDOException $e)
+		{
+			throw $e;
+		}
+	}
+        
+        public static function deleteBenevole($id)
+	{
+		$request = "DELETE FROM user WHERE id_user = '$id'";
 		try
 		{
 			$db = Database::getInstance();
