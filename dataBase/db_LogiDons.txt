@@ -28,6 +28,7 @@ CREATE TABLE don (
   quantite int(10) DEFAULT NULL,
   montant decimal(10,2) DEFAULT NULL,
   status varchar(3) NOT NULL DEFAULT 'new',
+  date_creation DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id_don),
   FOREIGN KEY (donateur) REFERENCES user(id_user)
 ) ENGINE=InnoDB;
