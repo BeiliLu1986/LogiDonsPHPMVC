@@ -23,11 +23,12 @@
     <th scope="col">Code Postale</th>
     <th scope="col">Ville</th>
     <th scope="col">Province</th>
+    <th scope="col">Disponibilités</th>
     <th scope="col"></th>
     </tr>
 <?php
 require_once('/modele/UserDAO.class.php');
-$id_user=$nom=$prenom=$email=$tel=$adresse=$codePost=$ville=$prov="";
+$id_user=$nom=$prenom=$email=$tel=$adresse=$codePost=$ville=$prov=$dispo="";
 $liste= UserDAO::findAllBenevoles();
 
 if($liste!=NULL){
@@ -42,6 +43,7 @@ while($liste->next()){
     $codePost=$u->getCode_postale();
     $ville=$u->getVille();
     $prov=$u->getProvince();
+    $dispo=$u->getDisponibilite();
     
     echo '<tr>
 			<td scope="row">'.$nom.'</td>
@@ -52,6 +54,7 @@ while($liste->next()){
                         <td scope="row">'.$codePost.'</td>
 			<td scope="row">'.$ville.'</td>
 			<td scope="row">'.$prov.'</td>
+                        <td scope="row">'.$dispo.'</td>
 			</tr>';
     }
 }

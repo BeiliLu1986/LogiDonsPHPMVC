@@ -23,7 +23,7 @@
 				    </div>
                     <div class="col-sm-6">
 						<label for="email">* Courriel</label>
-						<input required type="email" name="email" class="form-control" id="email" placeholder="votre@courriel.com" autocomplete="false">
+						<input required type="email" name="email" class="form-control" id="email" placeholder="votre@courriel.com" autocomplete="false" minlength="3" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -33,7 +33,7 @@
                     </div>
                     <div class="col-sm-6">
 						<label for="nom">* Nom</label>
-						<input required type="text" class="form-control" name="nom" id="nom" placeholder="Votre nom"  autocomplete="false">
+						<input required type="text" class="form-control" name="nom" id="nom" placeholder="Votre nom"  autocomplete="false" minlength="1" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -50,7 +50,7 @@
 			        </div>
                     <div class="col-sm-6">
                         <label for="prenom">* Prenom</label>
-						<input required type="text" name="prenom" class="form-control" id="prenom" placeholder="prenom">
+						<input required type="text" name="prenom" class="form-control" id="prenom" placeholder="prenom" minlength="1" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -66,24 +66,24 @@
 				<div class="form-group row">
                     <div class="col-sm-6">
 						<label for="quantite">Quantité</label>
-                                                <input required type="number" name="quantite" class="form-control" id="quantite" placeholder="Quantité" >
+                                                <input required type="number" name="quantite" class="form-control" id="quantite" placeholder="Quantité" minlength="1" maxlength="10" >
                     </div>
 					<div class="col-sm-3">
                         <label for="adresse">* Adresse</label>
-						<input required type="text" name="adresse" class="form-control" id="adresse" placeholder="Adresse">
+						<input required type="text" name="adresse" class="form-control" id="adresse" placeholder="Adresse" minlength="1" maxlength="100">
                     </div>
                     <div class="col-sm-3">
 					    <label for="ville">* Ville</label>
-						<input required type="text" name="ville" class="form-control" id="ville" placeholder="ville">
+						<input required type="text" name="ville" class="form-control" id="ville" placeholder="ville" minlength="1" maxlength="50">
                     </div>
                 </div>
 			   <div class="form-group row">
                     <div class="col-sm-6">
 						<label for="montant">Montant</label>
-						<input required type="number" name="montant" step="0.01" class="form-control" id="montant" placeholder="$">
+						<input required type="number" name="montant" step="0.01" class="form-control" id="montant" placeholder="$" minlength="1" maxlength="10">
 					</div>
 					<div class="col-sm-3">
-                        <label for="codePostP">* Code postale</label>
+                        <label for="codePostP">* Code postale <small>(format: A0A0A0)</small></label>
 						<input required type="text" name="codePostale" class="form-control" id="codePostale" placeholder="Code postale" minlength="6" maxlength="6">
 					</div>
                     <div class="col-sm-3">
@@ -119,7 +119,7 @@
                     <div class="col-sm-3">
 					    <div id="orgData">
 							<label for="nomOrg">Nom d'organisation</label>
-							<input type="text" name="nomOrg" class="form-control" id="nomOrg" placeholder="Nom de l'organisation">
+							<input type="text" name="nomOrg" class="form-control" id="nomOrg" placeholder="Nom de l'organisation" minlength="1" maxlength="100">
           				</div> 
 				    </div>
                 </div>

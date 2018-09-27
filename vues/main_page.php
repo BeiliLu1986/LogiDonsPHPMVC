@@ -157,6 +157,9 @@ $(document).ready(function(){
 			<li class="nav-item">
 				<a class="nav-link" href="?action=modifEmpl">Profil &nbsp; <span style="font-size:16px;" ></a>
 			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="?action=modifDispo">Ma disponibilit&#233 &nbsp; <span style="font-size:16px;" ></a>
+			</li>
 			<?php   
 			}
 		?>

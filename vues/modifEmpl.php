@@ -11,6 +11,8 @@ $nom=$prenom=$email=$tel=$ville=$prov=$codePost=$adresse=$pass="";
         }
  if($user!=NULL){
 $nom=$user->getNom();
+$id_user=$user->getId_user();
+$type=$user->getType_user();
 $prenom=$user->getPrenom();
 $email=$user->getCourriel();
 $tel=$user->getTelephone();
@@ -27,8 +29,10 @@ $pass=$user->getPassword();
 				<div class="col-md-4">
 				</div>
 				<div class="col-md-4">
-					<h1>Modifier mon compte</h1>
-					<hr>
+					<h1>Modifier le compte</h1>
+					
+					<?php if($type=='ben'){ echo '<a href="?action=suppBen&idBen='.$id_user.'">(retirer mon compte)</a>';}?>
+				<hr>
 				</div>
 				<div class="col-md-4">
 				</div>
