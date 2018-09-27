@@ -14,6 +14,7 @@ class User {
         private $province;
 	private $password;
         private $countDons;
+        private $disponibilite;
 
         public function __construct()	
 	{
@@ -75,11 +76,16 @@ class User {
         function getCountDons() {
             return $this->countDons;
         }
-        function setCountDons($countDons) {
-            $this->countDons = $countDons;
+        
+        function getDisponibilite() {
+            return $this->disponibilite;
         }
 
                 
+        function setCountDons($countDons) {
+            $this->countDons = $countDons;
+        }
+      
         function setId_user($id_user) {
             $this->id_user = $id_user;
         }
@@ -124,7 +130,11 @@ class User {
             $this->password = $password;
         }
 
-                        
+        function setDisponibilite($disponibilite) {
+            $this->disponibilite = $disponibilite;
+        }
+
+                                
 	public function __toString()
 	{
 		return "User[".$this->nom.",".$this->prenom.",".$this->courriel."]";
@@ -136,17 +146,18 @@ class User {
 	public function loadFromRecord($ligne)
 	{
 		$this->id_user = $ligne["id_user"];
-        $this->nom = $ligne["nom"];
+                $this->nom = $ligne["nom"];
 		$this->prenom = $ligne["prenom"];
-        $this->type_user = $ligne["type_user"];
-        $this->courriel = $ligne["courriel"];
-        $this->nom_organis = $ligne["nom_organis"];
+                $this->type_user = $ligne["type_user"];
+                $this->courriel = $ligne["courriel"];
+                $this->nom_organis = $ligne["nom_organis"];
 		$this->adresse = $ligne["adresse"];
 		$this->ville = $ligne["ville"];
 		$this->province = $ligne["province"];
 		$this->telephone = $ligne["telephone"];
 		$this->code_postale = $ligne["code_postale"];
-        $this->password = $ligne["password"];
+                $this->password = $ligne["password"];
+                $this->disponibilite = $ligne["dispo"];
 	}
         public function loadEmplFromRecord($ligne)
 	{
