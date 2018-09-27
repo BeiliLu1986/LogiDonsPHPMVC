@@ -190,10 +190,10 @@ class DonDAO
 			$count= DonDAO::countAllDons();
             date_default_timezone_set('America/New_York');
             $dCreate="";
-                    if($liste!=NULL){
+                    if($count>0){
                         if ($liste->next()){
                             $p=$liste->current();
-                        }}
+                        }
                         $dCreate=$p->getDate_creation();
                         while($liste->next()){
                             $d=$liste->current();
@@ -202,15 +202,16 @@ class DonDAO
                                 $dCreate=$date;
                             }
                         }
-                  
+					}
                 
                     $now = time(); // or your date as well
                     $your_date = strtotime($dCreate);
                     $datediff = $now - $your_date;
 
-                    $daysAll=round($datediff / (60 * 60 * 24));
+                    $daysAll=1+round($datediff / (60 * 60 * 24));
                     $moyen= round($count/$daysAll,2);
                     return $moyen;
+			
             
         }                      
 		
