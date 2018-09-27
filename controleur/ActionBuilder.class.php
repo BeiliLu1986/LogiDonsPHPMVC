@@ -14,6 +14,8 @@ require_once('./controleur/AccepterDonAction.class.php');
 require_once('./controleur/ListeDonAction.class.php');
 require_once('./controleur/StatistiqueAction.class.php');
 require_once('./controleur/ListBenevolesAction.class.php');
+require_once('./controleur/SupprimerBenevoleAction.class.php');
+require_once('./controleur/ModifierDispoAction.class.php');
 
 class ActionBuilder{
 	public static function getAction($nomAction){
@@ -28,16 +30,16 @@ class ActionBuilder{
 			case "creerDon" :
 				return new NewDonAction();
 				break;
-                        case "refuserDon" :
+            case "refuserDon" :
 				return new RefuserDonAction();
 				break;
-                        case "accepterDon" :
+            case "accepterDon" :
 				return new AccepterDonAction();
 				break;    
-                        case "newBenevole" :
+            case "newBenevole" :
 				return new NewBenevoleAction();
 				break;
-                        case "save" :
+            case "save" :
 				return new SaveAction();
 				break;
 			case "afficherMesDons" :
@@ -46,21 +48,25 @@ class ActionBuilder{
 			case "listEmpl" :
 				return new AfficherDesEmployesAction();
 				break;
-                        case "ajoutEmpl" :
+            case "ajoutEmpl" :
 				return new AjouterEmployeAction();
 				break;
-                        case "modifEmpl" :
+            case "modifEmpl" :
 				return new ModifierEmployeAction();
 				break; 
-                        case "listDons" :
+            case "listDons" :
 				return new ListeDonAction();
 				break;    
-                        case "stat" :
+            case "stat" :
 				return new StatistiqueAction();
 				break;    
-                        case "listBenevoles" :
+            case "listBenevoles" :
 				return new ListBenevolesAction();
 				break;
+			case "suppBen" :
+				return new SupprimerBenevoleAction();	
+			case "modifDispo" :
+				return new ModifierDispoAction();	
 			default :
 				return new DefaultAction();
 		}

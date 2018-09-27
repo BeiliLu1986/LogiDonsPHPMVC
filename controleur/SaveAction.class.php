@@ -89,6 +89,22 @@ class SaveAction implements Action {
             $typeUser="ben";
             $nom=$_REQUEST["nomBen"];
             $prenom=$_REQUEST["prenomBen"];
+            $l=$ma=$me=$j=$v=$s=$d=$dHr=$aHr="";
+            if(isset($_REQUEST["lundi"])){$l=$_REQUEST["lundi"].", ";}
+            if(isset($_REQUEST["mardi"])){$ma=$_REQUEST["mardi"].", ";}
+            if(isset($_REQUEST["mercredi"])){$me=$_REQUEST["mercredi"].", ";}
+            if(isset($_REQUEST["jeudi"])){$j=$_REQUEST["jeudi"].", ";}
+            if(isset($_REQUEST["vendredi"])){$v=$_REQUEST["vendredi"].", ";}
+            if(isset($_REQUEST["samedi"])){$s=$_REQUEST["samedi"].", ";}
+            if(isset($_REQUEST["dimanche"])){$d=$_REQUEST["dimanche"].",";}
+            if(isset($_REQUEST["deHr"])){$dHr="de ".$_REQUEST["deHr"];}
+            if(isset($_REQUEST["aHr"])){$aHr="a ".$_REQUEST["aHr"];}
+            
+            
+            $jours=$l.$ma.$me.$j.$v.$s.$d;
+            $heures=$dHr." ".$aHr;
+            $dispo=$jours." ".$heures;
+//            if($dispo==""){$dispo="Je ne suis pas disponible";}
             
             //creation de ID user
             $id=substr($nom,0,1).$prenom;
@@ -112,9 +128,13 @@ class SaveAction implements Action {
             $newUser->setProvince($_REQUEST["prov"]);
             $newUser->setCode_postale($_REQUEST["codePost"]);
             $newUser->setAdresse($_REQUEST["adresse"]);
+            $newUser->setDisponibilite($dispo);
             $userDao=new UserDAO();
             $userDao->addBenevole($newUser);
 			
+            
+            
+            
             //afficher la confirmation apres la creation d`un bénévole
                 $message='Le nouveau benevole a été ajouté.';
                 echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
