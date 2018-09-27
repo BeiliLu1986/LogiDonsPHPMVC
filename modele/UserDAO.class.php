@@ -50,6 +50,25 @@ class UserDAO
 		}	
     }  
     
+    public static function findAllBenevoles(){
+        try {
+			$liste = new Liste();
+			$requete = "SELECT * FROM user where type_user='ben'";
+			$cnx = Database::getInstance();
+			$res = $cnx->query($requete);
+		    foreach($res as $row) {
+                            $u = new User();
+                            $u->loadFromRecord($row);
+                            $liste->add($u);
+		    }
+                        $cnx = null;
+                    return $liste;
+		} catch (PDOException $e) {
+		    print "Error!: " . $e->getMessage() . "<br/>";
+		    return $liste;
+		}	
+    }  
+    
         public static function findById($id)
 	{
 		$db = Database::getInstance();
@@ -130,6 +149,7 @@ class UserDAO
             catch (PDOException $ex){
             }     
 	} 
+        
         
     public static function addEmploye($newUser)
 	{
