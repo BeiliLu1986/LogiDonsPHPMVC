@@ -156,8 +156,8 @@ class User {
 		$this->province = $ligne["province"];
 		$this->telephone = $ligne["telephone"];
 		$this->code_postale = $ligne["code_postale"];
-                $this->password = $ligne["password"];
-                $this->disponibilite = $ligne["dispo"];
+        $this->password = $ligne["password"];
+        $this->disponibilite = $ligne["dispo"];
 	}
         public function loadEmplFromRecord($ligne)
 	{

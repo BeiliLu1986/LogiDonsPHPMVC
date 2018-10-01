@@ -1,4 +1,9 @@
-<link rel="stylesheet" type="text/css" href="./css/listEmpl.css">
+
+<!-- Script pour dataTables  -->
+<?php include 'ScriptsDataTables.php';?>
+<!--  CSS pour la couleur de colonnes -->
+<link rel="stylesheet" href="./css/ColorValues.css">
+
 <div class="row">
 		<div class="col-md-12">
 			<div class="row">
@@ -6,6 +11,7 @@
 				</div>
 				<div class="col-md-4 text-center">
 					<h1 class="display-4">Liste des dons</h1>
+					<hr>
 					
 				</div>
 				<div class="col-md-4">
@@ -13,16 +19,18 @@
 			</div>
 		</div>
 </div>
+<!-- Table de Dons -->
 <div class="table-responsive">
-<table class="table table-hover">
-    <tr>
-    <th scope="col">Don id</th>
-    <th scope="col">Type</th>
-    <th scope="col">Description</th>
-    <th scope="col">Status</th>
-    <th scope="col">Affecté à</th>
-    <th scope="col"></th>
-    </tr>
+<table id="items_data"   class="table table-striped table-bordered table-hover">
+    <thead>
+	<tr class="info">
+	<td>Don id</td>
+    <td>Type</td>
+    <td>Description</td>
+    <td>Status</td>
+    <td>Affecté à</td>
+	</tr>
+    </thead>
 <?php
 require_once('/modele/DonDAO.class.php');
 $id_don=$type=$descr=$status=$nom=$prenom="";
@@ -45,20 +53,61 @@ if($liste!=NULL){
         if($s=='acc'){$status='Accepté';}
         elseif ($s=='ref') {$status='Refusé';}
         else {$status='Nouveau';}
-		
 		echo '<tr>
-			<td scope="row">'.$id_don.'</td>
-			<td scope="row">'.$type.'</td>
-			<td scope="row">'.$descr.'</td>
-			<td scope="row">'.$status.'</td>
-			<td scope="row">'.$nom." ".$prenom.'</td>
+			<td>'.$id_don.'</td>
+			<td>'.$type.'</td>
+			<td>'.$descr.'</td>
+			<td>'.$status.'</td>
+			<td>'.$nom." ".$prenom.'</td>
 			</tr>';
     }
 }
-
-    
-    
-    
 ?>
 </table>
+<!--  Script -->
+<script type="text/javascript">  
+				$(document).ready(function(){  
+					$('#items_data').DataTable({
+							dom: 'Bfrtip',
+							buttons:[
+									{ extend: 'print', text: 'Empprimer table' }
+									
+									],
+									
+							"language":{
+										"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+										},
+							"columnDefs":[{
+												"targets": 3,
+												"render": function(data, type, full, meta) {
+															var cellText = $(data).text(); //Stripping html tags !!!
+															if (type === 'display' &&  (cellText == "Nouveau" || data=='Nouveau')) {
+																var rowIndex = meta.row+1;
+																var colIndex = meta.col+1;
+																$('#items_data tbody tr:nth-child('+rowIndex+')').addClass('lightGreen');
+																$('#items_data tbody tr:nth-child('+rowIndex+') td:nth-child('+colIndex+')').addClass('green');
+																return data;
+															} else if (type === 'display' &&  (cellText == "Accepté" || data=='Accepté')) {
+																var rowIndex = meta.row+1;
+																var colIndex = meta.col+1;
+																$('#items_data tbody tr:nth-child('+rowIndex+')').addClass('lightBlue');
+																$('#items_data tbody tr:nth-child('+rowIndex+') td:nth-child('+colIndex+')').addClass('blue');
+																return data;
+															} else if (type === 'display' &&  (cellText == "Refusé" || data=='Refusé')) {
+																var rowIndex = meta.row+1;
+																var colIndex = meta.col+1;
+																$('#items_data tbody tr:nth-child('+rowIndex+')').addClass('lightRed');
+																$('#items_data tbody tr:nth-child('+rowIndex+') td:nth-child('+colIndex+')').addClass('red');
+															return data;
+															} else {
+																	return data;
+																}
+														}
+										}]
+					});  
+				});  
+			</script>  
 </div>
+<!--  Table de Dons -->
+
+

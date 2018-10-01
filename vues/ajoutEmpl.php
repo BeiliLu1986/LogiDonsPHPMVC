@@ -64,12 +64,23 @@
 	<div class="col-md-3"></div>
 </div>
 <div class="row">
-	<div class="col-sm-4"></div>
-	<div class="col-sm-4">
-		<button type="submit"  name="ok" value="OK" class="btn btn-info px-4 float-right " >Enregistrer Employe</button>
-		<input name="action" value="save" type="hidden" />
-	</div>
-	<div class="col-sm-4"></div>
-</div>
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-4"></div>
+						<div class="col-md-4">
+							<button type="submit"  name="ok" value="OK" class="btn btn-info px-4 float-right " >Enregistrer Employe</button>
+							<input name="action" value="save" type="hidden" />
+						</div>
+						<div class="col-md-4"></div>
+					</div>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+		</div>
 </div>
 </form>
+</div>
+

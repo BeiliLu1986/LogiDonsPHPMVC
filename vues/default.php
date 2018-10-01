@@ -27,10 +27,12 @@
 							Cette solution de dons en ligne s'adresse principalement aux organisations caritatives. Elle permet de gérer, sans recourir à un programmeur, des formulaires de dons en ligne totalement intégrés au logiciel de gestion de dons et donateurs.	
 						</p>
 					</div> 
-					<div ><img class="card-img-top" style=" height: 290px; width: 100%;" src="./img/software.jpg"></div>
+					<div ><img class="card-img-top"  src="./img/benevoles.jpg"></div>
 				</div>
-				<div class="col-md-2 text-justify">
-								<div ><img class="card-img-top" style=" height: 450px; width: 100%;" src="./img/don.jpg"></div>
+				<div class="col-md-2 text-center">
+								<div ><img class="card-img-top" src="./img/don.jpg"></div>
+								<hr>
+								<button type="button" class="btn btn-outline-info btn-lg" onclick="location.href = '?action=creerDon'">FAIRE UN DON</button>
 						</div>
 				</div>
 			</div>

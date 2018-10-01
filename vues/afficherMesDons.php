@@ -1,27 +1,10 @@
 
-<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>            
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.print.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.dataTables.min.css">
 
-<style>
-.lightRed {
-  background-color: #E8F5E9 !important
-}
+<!-- Script pour dataTables  -->
+<?php include 'ScriptsDataTables.php';?>
+<!--  CSS pour la couleur de colonnes -->
+<link rel="stylesheet" href="./css/ColorValues.css">
 
-.lightRed a {
-  color: #fff;
-  font-weight: bold;
-}
-
-.red {
-  background-color: #66BB6A; 
-}
-</style>
 	
 <?php
 require_once('./modele/DonDAO.class.php');
@@ -93,8 +76,8 @@ while ($liste->next())
 		<td>".$sFr."</td>
 		
 	    <td class ='text-center'>
-		<a href='?action=accepterDon&donAccepter=".$p->getId_don()."' class='btn btn-success' title='Accepter Don' ><i class='fa fa-check'></i></a> 
-		<a href='?action=refuserDon&donRefuser=".$p->getId_don()."' class='btn btn-danger' title='Refuser Don'><i class='fa fa-remove'></i></a>
+		<a href='?action=accepterDon&donAccepter=".$p->getId_don()."' class='btn btn-success' title='Accepter Don' ><i class='fa fa-check'></i> Accepter</a> 
+		<a href='?action=refuserDon&donRefuser=".$p->getId_don()."' class='btn btn-danger' title='Refuser Don'><i class='fa fa-remove'></i> Refuser</a>
 		</td>
 		</tr>
 		";
@@ -102,12 +85,14 @@ while ($liste->next())
 }
 ?>
 </table>
+<!--  Script -->
 <script type="text/javascript">  
 				$(document).ready(function(){  
 					$('#items_data').DataTable({
 							dom: 'Bfrtip',
 							buttons:[
 									{ extend: 'print', text: 'Empprimer table' }
+									
 									],
 									
 							"language":{
@@ -120,9 +105,21 @@ while ($liste->next())
 															if (type === 'display' &&  (cellText == "Nouveau" || data=='Nouveau')) {
 																var rowIndex = meta.row+1;
 																var colIndex = meta.col+1;
+																$('#items_data tbody tr:nth-child('+rowIndex+')').addClass('lightGreen');
+																$('#items_data tbody tr:nth-child('+rowIndex+') td:nth-child('+colIndex+')').addClass('green');
+																return data;
+															} else if (type === 'display' &&  (cellText == "Accepté" || data=='Accepté')) {
+																var rowIndex = meta.row+1;
+																var colIndex = meta.col+1;
+																$('#items_data tbody tr:nth-child('+rowIndex+')').addClass('lightBlue');
+																$('#items_data tbody tr:nth-child('+rowIndex+') td:nth-child('+colIndex+')').addClass('blue');
+																return data;
+															} else if (type === 'display' &&  (cellText == "Refusé" || data=='Refusé')) {
+																var rowIndex = meta.row+1;
+																var colIndex = meta.col+1;
 																$('#items_data tbody tr:nth-child('+rowIndex+')').addClass('lightRed');
 																$('#items_data tbody tr:nth-child('+rowIndex+') td:nth-child('+colIndex+')').addClass('red');
-																return data;
+															return data;
 															} else {
 																	return data;
 																}

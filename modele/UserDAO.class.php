@@ -201,6 +201,33 @@ class UserDAO
 			throw $e;
 		}
 	}
+	
+	
+	 //recherche de tous les employes
+        public static function countAllEmployes(){
+            $cnx = Database::getInstance();
+            $sql="SELECT * FROM user WHERE type_user='emp'";
+                $stmt = $cnx->prepare($sql);
+                    try { $stmt->execute();}
+                    catch(PDOException $e)
+                    {echo $e->getMessage();}
+                    $count=$stmt->rowCount();
+                    
+                        return $count;
+        }
+		
+		 //recherche de tous les benevoles
+        public static function countAllBenevoles(){
+            $cnx = Database::getInstance();
+            $sql="SELECT * FROM user WHERE type_user='ben'";
+                $stmt = $cnx->prepare($sql);
+                    try { $stmt->execute();}
+                    catch(PDOException $e)
+                    {echo $e->getMessage();}
+                    $count=$stmt->rowCount();
+                    
+                        return $count;
+        }
         
 }      
 ?>

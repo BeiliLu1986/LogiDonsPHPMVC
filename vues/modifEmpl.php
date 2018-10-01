@@ -40,52 +40,80 @@ $pass=$user->getPassword();
 		</div>
 </div>
 <form method="post">
-<div class="row" >
-	<div class="col-md-4"></div>
-	<div class="col-md-4">
-    <div class="form-group">
-		<label for="nom">Nom</label>
-		<input required type="text" name="nomEmplMod" id="nomEmplMod" value="<?=$nom?>" class="form-control">
-	</div>
-    <div class="form-group">
-		<label for="prenom">Prenom</label>
-		<input required type="text" name="prenomEmpl" id="prenomEmpl" value="<?=$prenom?>" class="form-control">
-	</div>
-    <div class="form-group">
-		<label for="email">Courriel</label>
-		<input required type="email" name="emailEmpl" id="emailEmpl" value="<?=$email?>" class="form-control">
-	</div>
-    <div class="form-group">
-		<label for="tel">Téléphone</label>
-		<input required type="text" name="telEmpl" id="telEmpl" value="<?=$tel?>"class="form-control" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" minlength="12" maxlength="12">
-	</div>
-    <div class="form-group">
-		<label for="ville">Ville</label>
-		<input required type="text" name="villeEmpl" id="villeEmpl" value="<?=$ville?>" class="form-control">
-	</div>
-    <div class="form-group">
-		<label for="province">Province</label>
-		<input required type="text" name="provEmpl" id="provEmpl" value="<?=$prov?>" class="form-control">
+<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
+				</div>
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-6">
+							 <div class="form-group">
+								<label for="nom">Nom</label>
+								<input required type="text" name="nomEmplMod" id="nomEmplMod" value="<?=$nom?>" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="prenom">Prenom</label>
+								<input required type="text" name="prenomEmpl" id="prenomEmpl" value="<?=$prenom?>" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="email">Courriel</label>
+								<input required type="email" name="emailEmpl" id="emailEmpl" value="<?=$email?>" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="tel">Téléphone</label>
+								<input required type="text" name="telEmpl" id="telEmpl" value="<?=$tel?>"class="form-control" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" minlength="12" maxlength="12">
+							</div>
+							<div class="form-group">
+								<label for="ville">Ville</label>
+								<input required type="text" name="villeEmpl" id="villeEmpl" value="<?=$ville?>" class="form-control">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="province">Province</label>
+								<input required type="text" name="provEmpl" id="provEmpl" value="<?=$prov?>" class="form-control">
+								</div>
+							<div class="form-group">
+								<label for="code">Code postale</label>
+								<input required type="text" name="codeEmpl" id="codeEmpl" value="<?=$codePost?>" class="form-control" minlength="6" maxlength="6">
+							</div>
+							<div class="form-group">
+								<label for="adresse">Adresse</label>
+								<input required type="text" name="adrEmpl" id="adrEmpl" value="<?=$adresse?>" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="password">Mot de pass</label>
+								<input required type="text" name="pasEmpl" id="pasEmpl" value="<?=$pass?>" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
 		</div>
-    <div class="form-group">
-		<label for="code">Code postale</label>
-		<input required type="text" name="codeEmpl" id="codeEmpl" value="<?=$codePost?>" class="form-control" minlength="6" maxlength="6">
-	</div>
-    <div class="form-group">
-		<label for="adresse">Adresse</label>
-		<input required type="text" name="adrEmpl" id="adrEmpl" value="<?=$adresse?>" class="form-control">
-	</div>
-    <div class="form-group">
-		<label for="password">Mot de pass</label>
-		<input required type="text" name="pasEmpl" id="pasEmpl" value="<?=$pass?>" class="form-control">
-	</div>
-    <div class="form-group">
-		<input type="submit" value="Sauvegarder" id="ok" class="form-control btn btn-info "></div>
-    <div class="form-group">
-		<input type="button" value="Modifier" id="mod" class="form-control btn btn-info ">
-		<input type="button" value="Annuler" id="annul" class="form-control btn btn-danger">
-	</div>
-		<input name="action" value="save" type="hidden" />
 </div>
+<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-4"></div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<input type="submit" value="Sauvegarder" id="ok" class="form-control btn btn-info "></div>
+							<div class="form-group">
+								<input type="button" value="Modifier" id="mod" class="form-control btn btn-info ">
+								<input type="button" value="Annuler" id="annul" class="form-control btn btn-danger">
+							</div>
+							<input name="action" value="save" type="hidden" />
+						</div>
+						<div class="col-md-4"></div>
+					</div>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+		</div>
 </div>
 </form>
